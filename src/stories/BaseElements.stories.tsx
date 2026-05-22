@@ -5,21 +5,22 @@ import { Divider } from '@/components/atoms/Divider';
 import { Link } from '@/components/atoms/Link';
 import { List } from '@/components/atoms/List';
 import { Eyebrow, Heading, Text } from '@/components/atoms/Typography';
-import { SectionHeader } from '@/components/molecules/SectionHeader';
 
 import './base-elements.css';
 
 function BaseElements() {
   return (
     <main className="base-elements">
-      <SectionHeader
-        description="Reusable primitives for editorial portfolio pages, technical dossiers, and design system documentation."
-        eyebrow="Styleguide / Base"
-        heading="Base elements for structured systems."
-        headingId="base-elements-title"
-        level="h1"
-        size="hero"
-      />
+      <header className="base-elements__header">
+        <Eyebrow>Styleguide / Base</Eyebrow>
+        <Heading id="base-elements-title" size="hero">
+          Base elements for structured systems.
+        </Heading>
+        <Text variant="lead">
+          Reusable primitives for editorial portfolio pages, technical dossiers,
+          and design system documentation.
+        </Text>
+      </header>
 
       <Divider />
 

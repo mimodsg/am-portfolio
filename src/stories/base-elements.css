@@ -6,6 +6,10 @@
   padding-right: var(--layout-page-gutter);
 }
 
+.base-elements__header {
+  @apply grid max-w-5xl gap-6;
+}
+
 .base-elements__section {
   @apply grid grid-cols-1 gap-6;
 }
