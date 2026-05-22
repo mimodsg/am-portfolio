@@ -22,7 +22,7 @@
 }
 
 .rail-nav-item__index {
-  @apply text-2xl leading-none text-zinc-800;
+  @apply text-2xl leading-none font-thin text-zinc-800;
 }
 
 .rail-nav-item__link:hover .rail-nav-item__index,
