@@ -10,8 +10,8 @@ const preview: Preview = {
     backgrounds: {
       default: 'paper',
       options: {
-        paper: { name: 'Paper', value: '#FAFAF8' },
-        neutral: { name: 'Neutral', value: '#DDD9E4' },
+        paper: { name: 'Stone 50', value: '#fafaf9' },
+        neutral: { name: 'Zinc 200', value: '#e4e4e7' },
       },
     },
     controls: {

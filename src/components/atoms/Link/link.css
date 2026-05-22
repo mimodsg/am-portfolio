@@ -1,0 +1,49 @@
+@reference '../../../styles/globals.css';
+
+.link {
+  @apply rounded-[var(--radius-sm)] font-body text-zinc-800 underline decoration-zinc-200 decoration-1 underline-offset-4 transition-colors duration-200 ease-out;
+}
+
+.link:focus-visible {
+  @apply outline-2 outline-offset-[3px] outline-violet-600;
+}
+
+.link--inline {
+  @apply decoration-zinc-200;
+}
+
+.link--inline:hover {
+  @apply text-violet-600 decoration-violet-600;
+}
+
+.link--standalone {
+  @apply text-sm leading-6 font-medium uppercase;
+}
+
+.link--standalone:hover,
+.link--metadata:hover {
+  @apply text-violet-600 decoration-violet-600;
+}
+
+.link--nav,
+.link--metadata {
+  @apply font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
+}
+
+.link--nav {
+  @apply px-3 py-2;
+}
+
+.link--nav:hover {
+  @apply text-violet-600 decoration-violet-600;
+}
+
+.link--metadata {
+  @apply decoration-zinc-200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    @apply transition-none;
+  }
+}

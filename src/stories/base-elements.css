@@ -1,0 +1,37 @@
+@reference '../styles/globals.css';
+
+.base-elements {
+  @apply mx-auto grid max-w-[var(--layout-max-width)] gap-12 bg-stone-50 py-12 text-zinc-800;
+  padding-left: var(--layout-page-gutter);
+  padding-right: var(--layout-page-gutter);
+}
+
+.base-elements__section {
+  @apply grid grid-cols-1 gap-6;
+}
+
+.base-elements__stack {
+  @apply grid min-w-0 gap-5;
+}
+
+.base-elements__row {
+  @apply flex flex-wrap items-center gap-4;
+}
+
+.base-elements__grid {
+  @apply grid grid-cols-1 gap-8;
+}
+
+@media (min-width: 760px) {
+  .base-elements {
+    @apply py-24;
+  }
+
+  .base-elements__section {
+    grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
+  }
+
+  .base-elements__grid {
+    @apply grid-cols-2;
+  }
+}

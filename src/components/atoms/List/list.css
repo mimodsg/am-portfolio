@@ -1,0 +1,44 @@
+@reference '../../../styles/globals.css';
+
+.list {
+  @apply m-0 grid list-none gap-3 p-0 font-body text-base leading-8 text-zinc-800;
+}
+
+.list__item {
+  @apply grid gap-2;
+}
+
+.list--default .list__item {
+  @apply relative pl-5;
+}
+
+.list--default .list__item::before {
+  @apply absolute left-0 h-1.5 w-1.5 rounded-full bg-violet-600;
+  content: '';
+  top: 0.7em;
+}
+
+.list--ruled {
+  @apply gap-0;
+}
+
+.list--ruled .list__item {
+  @apply border-t border-t-zinc-800/10 py-4;
+}
+
+.list--ruled .list__item:last-child {
+  @apply border-b border-b-zinc-800/10;
+}
+
+.list--metadata .list__item {
+  @apply border-t border-t-zinc-800/10 py-4;
+  grid-template-columns: minmax(7rem, 12rem) minmax(0, 1fr);
+}
+
+.list__label {
+  @apply font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
+}
+
+.list__text {
+  @apply min-w-0;
+}

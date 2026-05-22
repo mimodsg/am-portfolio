@@ -6,9 +6,8 @@
 }
 
 html {
-  background: var(--color-surface);
-  color: var(--color-primary);
-  font-family: var(--font-body);
+  @apply bg-stone-50 text-zinc-800;
+  @apply font-body;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
 }
@@ -43,13 +42,11 @@ svg {
 }
 
 ::selection {
-  background: var(--color-neutral);
-  color: var(--color-primary);
+  @apply bg-zinc-200 text-zinc-800;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-tertiary);
-  outline-offset: 3px;
+  @apply outline-2 outline-offset-[3px] outline-violet-600;
 }
 
 @media (prefers-reduced-motion: reduce) {

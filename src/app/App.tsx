@@ -1,10 +1,10 @@
-import { SiteHeader } from '@/components/organisms/SiteHeader';
+import { FloatingNavigationRail } from '@/components/organisms/FloatingNavigationRail';
 import { HomePage } from '@/components/templates/HomePage';
 
 export function App() {
   return (
     <>
-      <SiteHeader />
+      <FloatingNavigationRail />
       <HomePage />
     </>
   );

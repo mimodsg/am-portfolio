@@ -20,33 +20,33 @@ function Foundations() {
         <div className="foundations__header">
           <p className="foundations__eyebrow">01</p>
           <h2 className="foundations__heading" id="colors-title">
-            Color Tokens
+            Tailwind Color Scale
           </h2>
         </div>
         <div className="foundations__swatches">
-          <TokenSwatch name="Primary" value="#353533" variable="--color-primary" />
+          <TokenSwatch name="Primary" utility="zinc-800" value="#27272a" />
           <TokenSwatch
             name="Secondary"
-            value="#626260"
-            variable="--color-secondary"
+            utility="neutral-600"
+            value="#525252"
             tone="secondary"
           />
           <TokenSwatch
-            name="Tertiary"
-            value="#722CFE"
-            variable="--color-tertiary"
+            name="Accent"
+            utility="violet-600"
+            value="#7c3aed"
             tone="tertiary"
           />
           <TokenSwatch
             name="Neutral"
-            value="#DDD9E4"
-            variable="--color-neutral"
+            utility="zinc-200"
+            value="#e4e4e7"
             tone="neutral"
           />
           <TokenSwatch
             name="Surface"
-            value="#FAFAF8"
-            variable="--color-surface"
+            utility="stone-50"
+            value="#fafaf9"
             tone="surface"
           />
         </div>
@@ -102,15 +102,15 @@ function Foundations() {
 interface TokenSwatchProps {
   name: string;
   tone?: 'primary' | 'secondary' | 'tertiary' | 'neutral' | 'surface';
+  utility: string;
   value: string;
-  variable: string;
 }
 
 function TokenSwatch({
   name,
   tone = 'primary',
+  utility,
   value,
-  variable,
 }: TokenSwatchProps) {
   return (
     <article className="foundations__swatch">
@@ -119,7 +119,7 @@ function TokenSwatch({
         className={`foundations__swatch-color foundations__swatch-color--${tone}`}
       />
       <h3>{name}</h3>
-      <p>{variable}</p>
+      <p>{utility}</p>
       <p>{value}</p>
     </article>
   );
