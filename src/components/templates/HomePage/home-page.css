@@ -115,11 +115,13 @@
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1024px) {
   .home-page {
     padding-right: max(var(--layout-page-gutter), 15rem);
   }
+}
 
+@media (min-width: 1100px) {
   .home-page__hero {
     @apply pb-24 pt-32;
   }
