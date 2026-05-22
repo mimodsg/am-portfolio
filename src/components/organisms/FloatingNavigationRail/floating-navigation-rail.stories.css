@@ -2,16 +2,16 @@
 
 .floating-navigation-rail-story {
   @apply min-h-screen bg-stone-50 px-8 text-zinc-800 lg:pr-64;
-}
 
-.floating-navigation-rail-story__section {
-  @apply grid min-h-screen max-w-5xl content-center border-b border-zinc-200 py-24;
-}
+  & .floating-navigation-rail-story__section {
+    @apply grid min-h-screen max-w-5xl content-center border-b border-zinc-200 py-24;
+  }
 
-.floating-navigation-rail-story__eyebrow {
-  @apply m-0 font-mono text-xs font-medium text-neutral-600 uppercase;
-}
+  & .floating-navigation-rail-story__eyebrow {
+    @apply m-0 font-mono text-xs font-medium text-neutral-600 uppercase;
+  }
 
-.floating-navigation-rail-story__title {
-  @apply m-0 mt-6 max-w-3xl font-display text-6xl leading-none font-normal text-zinc-800;
+  & .floating-navigation-rail-story__title {
+    @apply m-0 mt-6 max-w-3xl font-display text-6xl leading-none font-normal text-zinc-800;
+  }
 }

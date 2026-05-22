@@ -2,16 +2,16 @@
 
 .rail-status {
   @apply grid gap-2 bg-zinc-900 p-5 font-mono uppercase;
-}
 
-.rail-status__label {
-  @apply text-[0.625rem] leading-4 font-medium text-zinc-400;
-}
+  & .rail-status__label {
+    @apply text-[0.625rem] leading-4 font-medium text-zinc-400;
+  }
 
-.rail-status__value {
-  @apply flex items-center gap-2 font-body text-xs leading-5 font-medium text-white;
-}
+  & .rail-status__value {
+    @apply flex items-center gap-2 font-body text-xs leading-5 font-medium text-white;
+  }
 
-.rail-status__dot {
-  @apply size-2 rounded-full bg-violet-500;
+  & .rail-status__dot {
+    @apply size-2 rounded-full bg-violet-500;
+  }
 }

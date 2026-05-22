@@ -4,178 +4,178 @@
   @apply mx-auto grid max-w-[var(--layout-max-width)] gap-20 bg-stone-50 py-20 text-zinc-800;
   padding-left: var(--layout-page-gutter);
   padding-right: var(--layout-page-gutter);
-}
 
-.colors__intro,
-.colors__section {
-  @apply grid gap-10 border-b border-b-zinc-800/10 pb-20;
-}
+  & .colors__intro,
+  & .colors__section {
+    @apply grid gap-10 border-b border-b-zinc-800/10 pb-20;
+  }
 
-.colors__eyebrow,
-.colors__swatch p {
-  @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
-}
+  & .colors__eyebrow,
+  & .colors__swatch p {
+    @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
+  }
 
-.colors__title,
-.colors__heading {
-  @apply m-0 font-display font-normal tracking-normal text-zinc-800;
-}
+  & .colors__title,
+  & .colors__heading {
+    @apply m-0 font-display font-normal tracking-normal text-zinc-800;
+  }
 
-.colors__title {
-  @apply max-w-[10ch] text-6xl leading-none md:text-8xl xl:text-9xl;
-}
+  & .colors__title {
+    @apply max-w-[10ch] text-6xl leading-none md:text-8xl xl:text-9xl;
+  }
 
-.colors__heading {
-  @apply text-3xl leading-tight;
-}
+  & .colors__heading {
+    @apply text-3xl leading-tight;
+  }
 
-.colors__body {
-  @apply m-0 max-w-3xl font-body text-base leading-8 text-zinc-800;
-}
+  & .colors__body {
+    @apply m-0 max-w-3xl font-body text-base leading-8 text-zinc-800;
 
-.colors__body--muted {
-  @apply mt-4 text-neutral-600;
-}
+    &--muted {
+      @apply mt-4 text-neutral-600;
+    }
+  }
 
-.colors__section-header {
-  @apply grid grid-cols-1 gap-6;
-}
+  & .colors__section-header {
+    @apply grid grid-cols-1 gap-6;
+  }
 
-.colors__role-grid,
-.colors__scale {
-  @apply grid grid-cols-1 gap-8;
-}
+  & .colors__role-grid,
+  & .colors__scale {
+    @apply grid grid-cols-1 gap-8;
+  }
 
-.colors__swatch {
-  @apply grid gap-4 border-t border-t-zinc-800/10 py-6;
-}
+  & .colors__swatch {
+    @apply grid gap-4 border-t border-t-zinc-800/10 py-6;
 
-.colors__swatch-color {
-  @apply h-28 border border-zinc-800/10;
-}
+    h3 {
+      @apply mb-2 mt-0 font-body text-base leading-6 font-medium text-zinc-800;
+    }
+  }
 
-.colors__swatch h3 {
-  @apply mb-2 mt-0 font-body text-base leading-6 font-medium text-zinc-800;
-}
+  & .colors__swatch-color {
+    @apply h-28 border border-zinc-800/10;
 
-.colors__swatch-color--stone_50 {
-  @apply bg-stone-50;
-}
+    &--stone_50 {
+      @apply bg-stone-50;
+    }
 
-.colors__swatch-color--stone_100 {
-  @apply bg-stone-100;
-}
+    &--stone_100 {
+      @apply bg-stone-100;
+    }
 
-.colors__swatch-color--stone_200 {
-  @apply bg-stone-200;
-}
+    &--stone_200 {
+      @apply bg-stone-200;
+    }
 
-.colors__swatch-color--stone_300 {
-  @apply bg-stone-300;
-}
+    &--stone_300 {
+      @apply bg-stone-300;
+    }
 
-.colors__swatch-color--zinc_50 {
-  @apply bg-zinc-50;
-}
+    &--zinc_50 {
+      @apply bg-zinc-50;
+    }
 
-.colors__swatch-color--zinc_100 {
-  @apply bg-zinc-100;
-}
+    &--zinc_100 {
+      @apply bg-zinc-100;
+    }
 
-.colors__swatch-color--zinc_200 {
-  @apply bg-zinc-200;
-}
+    &--zinc_200 {
+      @apply bg-zinc-200;
+    }
 
-.colors__swatch-color--zinc_300 {
-  @apply bg-zinc-300;
-}
+    &--zinc_300 {
+      @apply bg-zinc-300;
+    }
 
-.colors__swatch-color--zinc_500 {
-  @apply bg-zinc-500;
-}
+    &--zinc_500 {
+      @apply bg-zinc-500;
+    }
 
-.colors__swatch-color--zinc_700 {
-  @apply bg-zinc-700;
-}
+    &--zinc_700 {
+      @apply bg-zinc-700;
+    }
 
-.colors__swatch-color--zinc_800 {
-  @apply bg-zinc-800;
-}
+    &--zinc_800 {
+      @apply bg-zinc-800;
+    }
 
-.colors__swatch-color--zinc_900 {
-  @apply bg-zinc-900;
-}
+    &--zinc_900 {
+      @apply bg-zinc-900;
+    }
 
-.colors__swatch-color--neutral_100 {
-  @apply bg-neutral-100;
-}
+    &--neutral_100 {
+      @apply bg-neutral-100;
+    }
 
-.colors__swatch-color--neutral_200 {
-  @apply bg-neutral-200;
-}
+    &--neutral_200 {
+      @apply bg-neutral-200;
+    }
 
-.colors__swatch-color--neutral_300 {
-  @apply bg-neutral-300;
-}
+    &--neutral_300 {
+      @apply bg-neutral-300;
+    }
 
-.colors__swatch-color--neutral_500 {
-  @apply bg-neutral-500;
-}
+    &--neutral_500 {
+      @apply bg-neutral-500;
+    }
 
-.colors__swatch-color--neutral_600 {
-  @apply bg-neutral-600;
-}
+    &--neutral_600 {
+      @apply bg-neutral-600;
+    }
 
-.colors__swatch-color--neutral_700 {
-  @apply bg-neutral-700;
-}
+    &--neutral_700 {
+      @apply bg-neutral-700;
+    }
 
-.colors__swatch-color--violet_50 {
-  @apply bg-violet-50;
-}
+    &--violet_50 {
+      @apply bg-violet-50;
+    }
 
-.colors__swatch-color--violet_100 {
-  @apply bg-violet-100;
-}
+    &--violet_100 {
+      @apply bg-violet-100;
+    }
 
-.colors__swatch-color--violet_200 {
-  @apply bg-violet-200;
-}
+    &--violet_200 {
+      @apply bg-violet-200;
+    }
 
-.colors__swatch-color--violet_400 {
-  @apply bg-violet-400;
-}
+    &--violet_400 {
+      @apply bg-violet-400;
+    }
 
-.colors__swatch-color--violet_500 {
-  @apply bg-violet-500;
-}
+    &--violet_500 {
+      @apply bg-violet-500;
+    }
 
-.colors__swatch-color--violet_600 {
-  @apply bg-violet-600;
-}
+    &--violet_600 {
+      @apply bg-violet-600;
+    }
 
-.colors__swatch-color--violet_700 {
-  @apply bg-violet-700;
-}
+    &--violet_700 {
+      @apply bg-violet-700;
+    }
 
-.colors__swatch-color--violet_800 {
-  @apply bg-violet-800;
+    &--violet_800 {
+      @apply bg-violet-800;
+    }
+  }
 }
 
 @media (min-width: 760px) {
   .colors {
     @apply py-32;
-  }
 
-  .colors__section-header {
-    grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
-  }
+    & .colors__section-header {
+      grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
+    }
 
-  .colors__role-grid {
-    @apply grid-cols-5;
-  }
+    & .colors__role-grid {
+      @apply grid-cols-5;
+    }
 
-  .colors__scale {
-    @apply grid-cols-4;
+    & .colors__scale {
+      @apply grid-cols-4;
+    }
   }
 }

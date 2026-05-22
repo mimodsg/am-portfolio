@@ -4,128 +4,128 @@
   @apply mx-auto max-w-[var(--layout-max-width)] bg-stone-50 py-16 text-zinc-800;
   padding-left: var(--layout-page-gutter);
   padding-right: var(--layout-page-gutter);
-}
 
-.foundations__section {
-  @apply border-t border-t-zinc-800/10 py-12;
-}
+  & .foundations__section {
+    @apply border-t border-t-zinc-800/10 py-12;
 
-.foundations__section:first-child {
-  @apply border-t-0 pt-0;
-}
+    &:first-child {
+      @apply border-t-0 pt-0;
+    }
+  }
 
-.foundations__eyebrow,
-.foundations__meta,
-.foundations__swatch p,
-.foundations__image-frame figcaption {
-  @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
-}
+  & .foundations__eyebrow,
+  & .foundations__meta,
+  & .foundations__swatch p,
+  & .foundations__image-frame figcaption {
+    @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
+  }
 
-.foundations__title {
-  @apply mb-0 mt-4 max-w-[10ch] font-display text-6xl leading-none font-normal tracking-normal text-zinc-800 md:text-8xl xl:text-9xl;
-}
+  & .foundations__title {
+    @apply mb-0 mt-4 max-w-[10ch] font-display text-6xl leading-none font-normal tracking-normal text-zinc-800 md:text-8xl xl:text-9xl;
+  }
 
-.foundations__intro,
-.foundations__body {
-  @apply font-body text-base leading-8 text-zinc-800;
-}
+  & .foundations__intro,
+  & .foundations__body {
+    @apply font-body text-base leading-8 text-zinc-800;
+  }
 
-.foundations__intro {
-  @apply max-w-3xl;
-}
+  & .foundations__intro {
+    @apply max-w-3xl;
+  }
 
-.foundations__header {
-  @apply mb-8 grid grid-cols-1 gap-4;
-}
+  & .foundations__header {
+    @apply mb-8 grid grid-cols-1 gap-4;
+  }
 
-.foundations__heading,
-.foundations__display {
-  @apply m-0 font-display leading-tight font-normal tracking-normal text-zinc-800;
-}
+  & .foundations__heading,
+  & .foundations__display {
+    @apply m-0 font-display leading-tight font-normal tracking-normal text-zinc-800;
+  }
 
-.foundations__heading {
-  @apply text-3xl;
-}
+  & .foundations__heading {
+    @apply text-3xl;
+  }
 
-.foundations__display {
-  @apply max-w-[12ch] text-5xl;
-}
+  & .foundations__display {
+    @apply max-w-[12ch] text-5xl;
+  }
 
-.foundations__swatches,
-.foundations__type-grid {
-  @apply grid grid-cols-1 gap-4;
-}
+  & .foundations__swatches,
+  & .foundations__type-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
 
-.foundations__swatch {
-  @apply rounded-[var(--radius-lg)] border border-zinc-800/10 bg-stone-50 p-6 shadow-sm;
-}
+  & .foundations__swatch {
+    @apply rounded-[var(--radius-lg)] border border-zinc-800/10 bg-stone-50 p-6 shadow-sm;
 
-.foundations__swatch-color {
-  @apply mb-4 h-20 rounded-[var(--radius-md)] border border-zinc-800/10;
-}
+    h3 {
+      @apply mb-2 mt-0 font-body text-base leading-6 font-medium text-zinc-800;
+    }
 
-.foundations__swatch-color--primary {
-  @apply bg-zinc-800;
-}
+    p + p {
+      @apply mt-1;
+    }
+  }
 
-.foundations__swatch-color--secondary {
-  @apply bg-neutral-600;
-}
+  & .foundations__swatch-color {
+    @apply mb-4 h-20 rounded-[var(--radius-md)] border border-zinc-800/10;
 
-.foundations__swatch-color--tertiary {
-  @apply bg-violet-600;
-}
+    &--primary {
+      @apply bg-zinc-800;
+    }
 
-.foundations__swatch-color--neutral {
-  @apply bg-zinc-200;
-}
+    &--secondary {
+      @apply bg-neutral-600;
+    }
 
-.foundations__swatch-color--surface {
-  @apply bg-stone-50;
-}
+    &--tertiary {
+      @apply bg-violet-600;
+    }
 
-.foundations__swatch h3 {
-  @apply mb-2 mt-0 font-body text-base leading-6 font-medium text-zinc-800;
-}
+    &--neutral {
+      @apply bg-zinc-200;
+    }
 
-.foundations__swatch p + p {
-  @apply mt-1;
-}
+    &--surface {
+      @apply bg-stone-50;
+    }
+  }
 
-.foundations__type-grid article {
-  @apply border-t border-t-zinc-800/10 pt-4;
-}
+  & .foundations__type-grid article {
+    @apply border-t border-t-zinc-800/10 pt-4;
+  }
 
-.foundations__image-frame {
-  @apply m-0;
-}
+  & .foundations__image-frame {
+    @apply m-0;
 
-.foundations__image-frame img {
-  @apply w-full rounded-[var(--radius-lg)];
-}
+    img {
+      @apply w-full rounded-[var(--radius-lg)];
+    }
 
-.foundations__image-frame figcaption {
-  @apply mt-4;
+    figcaption {
+      @apply mt-4;
+    }
+  }
 }
 
 @media (min-width: 760px) {
   .foundations {
     @apply py-24;
-  }
 
-  .foundations__section {
-    @apply py-20;
-  }
+    & .foundations__section {
+      @apply py-20;
+    }
 
-  .foundations__header {
-    grid-template-columns: 10rem minmax(0, 1fr);
-  }
+    & .foundations__header {
+      grid-template-columns: 10rem minmax(0, 1fr);
+    }
 
-  .foundations__swatches {
-    @apply grid-cols-5;
-  }
+    & .foundations__swatches {
+      @apply grid-cols-5;
+    }
 
-  .foundations__type-grid {
-    grid-template-columns: 1.2fr 1fr 1fr;
+    & .foundations__type-grid {
+      grid-template-columns: 1.2fr 1fr 1fr;
+    }
   }
 }

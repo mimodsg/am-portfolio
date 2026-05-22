@@ -2,36 +2,36 @@
 
 .rail-nav-item {
   @apply m-0;
-}
 
-.rail-nav-item__link {
-  @apply grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline gap-2 px-5 py-2 font-body text-xs font-medium tracking-normal text-zinc-800 no-underline uppercase transition-colors duration-200 ease-out;
-}
+  & .rail-nav-item__link {
+    @apply grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline gap-2 px-5 py-2 font-body text-xs font-medium tracking-normal text-zinc-800 no-underline uppercase transition-colors duration-200 ease-out;
 
-.rail-nav-item__link:hover,
-.rail-nav-item__link[aria-current='true'] {
-  @apply text-violet-600;
-}
+    &:hover,
+    &[aria-current='true'] {
+      @apply text-violet-600;
+    }
 
-.rail-nav-item__link[aria-current='true'] {
-  @apply bg-zinc-100;
-}
+    &[aria-current='true'] {
+      @apply bg-zinc-100;
+    }
 
-.rail-nav-item__link:focus-visible {
-  @apply outline-2 outline-offset-[-2px] outline-violet-600;
-}
+    &:focus-visible {
+      @apply outline-2 outline-offset-[-2px] outline-violet-600;
+    }
 
-.rail-nav-item__index {
-  @apply text-2xl leading-none font-thin text-zinc-800;
-}
+    &:hover .rail-nav-item__index,
+    &[aria-current='true'] .rail-nav-item__index {
+      @apply text-violet-600;
+    }
+  }
 
-.rail-nav-item__link:hover .rail-nav-item__index,
-.rail-nav-item__link[aria-current='true'] .rail-nav-item__index {
-  @apply text-violet-600;
-}
+  & .rail-nav-item__index {
+    @apply text-2xl leading-none font-thin text-zinc-800;
+  }
 
-.rail-nav-item__label {
-  @apply min-w-0 leading-5 text-zinc-800;
+  & .rail-nav-item__label {
+    @apply min-w-0 leading-5 text-zinc-800;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

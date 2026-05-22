@@ -2,26 +2,26 @@
 
 .button {
   @apply inline-flex min-h-12 items-center justify-center rounded-[var(--radius-lg)] px-7 py-4 font-body text-sm leading-6 font-medium tracking-normal no-underline uppercase transition-colors duration-150;
-}
 
-.button:focus-visible {
-  @apply outline-2 outline-offset-[3px] outline-violet-600;
-}
+  &:focus-visible {
+    @apply outline-2 outline-offset-[3px] outline-violet-600;
+  }
 
-.button--primary {
-  @apply border border-zinc-800 bg-zinc-800 text-stone-50;
-}
+  &.button--primary {
+    @apply border border-zinc-800 bg-zinc-800 text-stone-50;
+  }
 
-.button--secondary {
-  @apply border border-zinc-800/15 bg-zinc-800/5 text-zinc-800;
-}
+  &.button--secondary {
+    @apply border border-zinc-800/15 bg-zinc-800/5 text-zinc-800;
+  }
 
-.button--outline {
-  @apply border border-zinc-800/10 bg-transparent text-zinc-800;
-}
+  &.button--outline {
+    @apply border border-zinc-800/10 bg-transparent text-zinc-800;
+  }
 
-.button--ghost {
-  @apply border border-transparent bg-transparent px-4 py-3 text-neutral-600;
+  &.button--ghost {
+    @apply border border-transparent bg-transparent px-4 py-3 text-neutral-600;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

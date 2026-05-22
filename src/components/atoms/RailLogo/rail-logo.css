@@ -2,18 +2,18 @@
 
 .rail-logo {
   @apply flex min-h-48 items-center justify-center p-6 no-underline transition-colors duration-200 ease-out;
-}
 
-.rail-logo:hover {
-  @apply bg-zinc-100;
-}
+  &:hover {
+    @apply bg-zinc-100;
+  }
 
-.rail-logo:focus-visible {
-  @apply outline-2 outline-offset-[-2px] outline-violet-600;
-}
+  &:focus-visible {
+    @apply outline-2 outline-offset-[-2px] outline-violet-600;
+  }
 
-.rail-logo__image {
-  @apply block w-32 max-w-full;
+  & .rail-logo__image {
+    @apply block w-32 max-w-full;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
