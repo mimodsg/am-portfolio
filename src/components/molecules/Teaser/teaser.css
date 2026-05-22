@@ -1,0 +1,27 @@
+@reference '../../../styles/globals.css';
+
+.teaser {
+  @apply grid gap-6;
+
+  & .teaser__eyebrow {
+    @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-violet-700 uppercase;
+  }
+
+  & .teaser__content {
+    @apply grid max-w-4xl gap-6;
+  }
+
+  & .teaser__title {
+    @apply m-0 max-w-3xl font-display text-4xl leading-tight font-normal tracking-normal text-zinc-800 md:text-7xl md:mb-10;
+  }
+
+  & .teaser__lede {
+    @apply m-0 max-w-3xl font-body text-base leading-8 text-zinc-800;
+  }
+}
+
+@media (min-width: 760px) {
+  .teaser {
+    grid-template-columns: minmax(10rem, 16rem) minmax(0, 1fr);
+  }
+}

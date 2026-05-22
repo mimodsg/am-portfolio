@@ -1,0 +1,107 @@
+@reference '../../../styles/globals.css';
+
+.work-experience-timeline {
+  @apply border-t border-t-zinc-200 py-16 text-zinc-800;
+
+  & .work-experience-timeline__track {
+    @apply relative m-0 mt-16 grid list-none gap-16 p-0;
+  }
+
+  & .work-experience-timeline__rule {
+    @apply absolute bottom-0 left-3 top-0 z-0 m-0 w-px origin-top bg-zinc-200;
+  }
+
+  & .work-experience-timeline__item {
+    @apply relative z-10 grid gap-5 pl-10;
+  }
+
+  & .work-experience-timeline__date {
+    @apply order-2;
+  }
+
+  & .work-experience-timeline__axis {
+    @apply absolute left-0 top-1 flex w-6 flex-col items-center gap-3;
+  }
+
+  & .work-experience-timeline__node {
+    @apply size-6 bg-no-repeat bg-contain bg-center;
+    background-image: url('../../../../assets/images/timeline-dot.svg');
+  }
+
+  & .work-experience-timeline__index {
+    @apply font-mono text-2xl leading-none font-thin text-zinc-200;
+    writing-mode: vertical-rl;
+  }
+
+  & .work-experience-timeline__content {
+    @apply order-3;
+  }
+
+  & .work-experience-timeline__actions {
+    @apply mt-16 flex justify-start;
+  }
+}
+
+@media (min-width: 760px) {
+  .work-experience-timeline {
+    @apply py-24;
+
+    & .work-experience-timeline__track {
+      @apply mt-24 gap-24;
+    }
+
+    & .work-experience-timeline__rule {
+      @apply left-1/2;
+    }
+
+    & .work-experience-timeline__item {
+      @apply grid-cols-[minmax(0,1fr)_4rem_minmax(0,1fr)] gap-8 pl-0;
+
+      &.work-experience-timeline__item--left {
+        & .work-experience-timeline__date {
+          @apply col-start-3 row-start-1 justify-self-start;
+        }
+
+        & .work-experience-timeline__content {
+          @apply col-start-1 row-start-1;
+        }
+      }
+
+      &.work-experience-timeline__item--right {
+        & .work-experience-timeline__date {
+          @apply col-start-1 row-start-1 justify-self-end;
+        }
+
+        & .work-experience-timeline__content {
+          @apply col-start-3 row-start-1;
+        }
+      }
+    }
+
+    & .work-experience-timeline__date {
+      @apply order-none self-start pt-1;
+    }
+
+    & .work-experience-timeline__axis {
+      @apply static col-start-2 row-start-1 w-auto self-start;
+    }
+
+    & .work-experience-timeline__content {
+      @apply order-none;
+    }
+
+    & .work-experience-timeline__actions {
+      @apply mt-24 justify-center;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-experience-timeline {
+    & .work-experience-timeline__rule,
+    & .work-experience-timeline__item,
+    & .work-experience-timeline__node {
+      transform: none !important;
+    }
+  }
+}

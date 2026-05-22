@@ -1,4 +1,5 @@
 import { ButtonLink } from '@/components/atoms/Button';
+import { WorkExperienceTimeline } from '@/components/organisms/WorkExperienceTimeline';
 import { experiencePoints } from '@/data/experience';
 import { projects } from '@/data/projects';
 
@@ -36,6 +37,8 @@ export function HomePage() {
           </aside>
         </div>
       </section>
+
+      <WorkExperienceTimeline />
 
       <section className="home-page__section" id="work" aria-labelledby="work-title">
         <div className="home-page__section-header">

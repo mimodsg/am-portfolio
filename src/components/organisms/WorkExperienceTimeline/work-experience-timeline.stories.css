@@ -1,0 +1,7 @@
+@reference '../../../styles/globals.css';
+
+.work-experience-timeline-story {
+  @apply mx-auto max-w-[var(--layout-max-width)] bg-stone-50 text-zinc-800;
+  padding-left: var(--layout-page-gutter);
+  padding-right: var(--layout-page-gutter);
+}

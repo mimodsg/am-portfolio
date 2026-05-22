@@ -1,0 +1,7 @@
+@reference '../../../styles/globals.css';
+
+.experience-card-story {
+  @apply mx-auto max-w-2xl bg-stone-50 py-20 text-zinc-800;
+  padding-left: var(--layout-page-gutter);
+  padding-right: var(--layout-page-gutter);
+}
