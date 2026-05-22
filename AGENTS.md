@@ -206,6 +206,18 @@ Preferred approach:
 - Keep markup clean and easy to scan.
 - Use component-level CSS files for repeated component styles.
 
+### CSS Authoring Style
+
+- Write component styles in CSS files with Tailwind `@apply`.
+- Prefer nested BEM-style organization under the owning block when it improves scanability.
+- Use valid native CSS nesting only:
+  - Descendant elements: `& .component__element`
+  - Same-node modifiers: `&.component--modifier`
+  - Element modifiers: `& .component__element.component__element--modifier`
+  - States: `&:hover`, `&:focus-visible`, and similar pseudo-classes
+- Do not use Sass-only selector concatenation such as `&__element` or `&--modifier`; this project does not rely on Sass, and those selectors can be dropped by the browser or toolchain.
+- Keep global files such as `globals.css` and `tokens.css` flat unless nesting adds clear value.
+
 Use CSS variables for design tokens:
 
 ```css
