@@ -29,3 +29,40 @@ export const Default: Story = {
     </main>
   ),
 };
+
+export const Stacked: Story = {
+  args: {
+    ...Default.args,
+    variant: 'stacked',
+  },
+  render: (args) => (
+    <main className="teaser-story">
+      <Teaser {...args} />
+    </main>
+  ),
+};
+
+export const Big: Story = {
+  args: {
+    ...Default.args,
+    variant: 'big',
+  },
+  render: (args) => (
+    <main className="teaser-story">
+      <Teaser {...args} />
+    </main>
+  ),
+};
+
+export const Small: Story = {
+  args: {
+    eyebrow: 'Experience',
+    heading: 'Selected delivery timeline.',
+    variant: 'small',
+  },
+  render: (args) => (
+    <main className="teaser-story">
+      <Teaser {...args} />
+    </main>
+  ),
+};

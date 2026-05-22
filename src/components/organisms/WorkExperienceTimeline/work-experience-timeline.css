@@ -47,7 +47,7 @@
     @apply py-24;
 
     & .work-experience-timeline__track {
-      @apply mt-24 gap-24;
+      @apply mt-32 gap-24;
     }
 
     & .work-experience-timeline__rule {
