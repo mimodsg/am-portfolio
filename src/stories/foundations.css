@@ -70,23 +70,23 @@
   & .foundations__swatch-color {
     @apply mb-4 h-20 rounded-[var(--radius-md)] border border-zinc-800/10;
 
-    &--primary {
+    &.foundations__swatch-color--primary {
       @apply bg-zinc-800;
     }
 
-    &--secondary {
+    &.foundations__swatch-color--secondary {
       @apply bg-neutral-600;
     }
 
-    &--tertiary {
+    &.foundations__swatch-color--tertiary {
       @apply bg-violet-600;
     }
 
-    &--neutral {
+    &.foundations__swatch-color--neutral {
       @apply bg-zinc-200;
     }
 
-    &--surface {
+    &.foundations__swatch-color--surface {
       @apply bg-stone-50;
     }
   }

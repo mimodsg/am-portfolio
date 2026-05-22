@@ -3,11 +3,11 @@
 .list {
   @apply m-0 grid list-none gap-3 p-0 font-body text-base leading-8 text-zinc-800;
 
-  &__item {
+  & .list__item {
     @apply grid gap-2;
   }
 
-  &--default &__item {
+  &.list--default .list__item {
     @apply relative pl-5;
 
     &::before {
@@ -17,7 +17,7 @@
     }
   }
 
-  &--ruled {
+  &.list--ruled {
     @apply gap-0;
 
     .list__item {
@@ -29,16 +29,16 @@
     }
   }
 
-  &--metadata &__item {
+  &.list--metadata .list__item {
     @apply border-t border-t-zinc-800/10 py-4;
     grid-template-columns: minmax(7rem, 12rem) minmax(0, 1fr);
   }
 
-  &__label {
+  & .list__label {
     @apply font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
   }
 
-  &__text {
+  & .list__text {
     @apply min-w-0;
   }
 }

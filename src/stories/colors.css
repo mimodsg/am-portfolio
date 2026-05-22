@@ -31,7 +31,7 @@
   & .colors__body {
     @apply m-0 max-w-3xl font-body text-base leading-8 text-zinc-800;
 
-    &--muted {
+    &.colors__body--muted {
       @apply mt-4 text-neutral-600;
     }
   }
@@ -56,107 +56,107 @@
   & .colors__swatch-color {
     @apply h-28 border border-zinc-800/10;
 
-    &--stone_50 {
+    &.colors__swatch-color--stone_50 {
       @apply bg-stone-50;
     }
 
-    &--stone_100 {
+    &.colors__swatch-color--stone_100 {
       @apply bg-stone-100;
     }
 
-    &--stone_200 {
+    &.colors__swatch-color--stone_200 {
       @apply bg-stone-200;
     }
 
-    &--stone_300 {
+    &.colors__swatch-color--stone_300 {
       @apply bg-stone-300;
     }
 
-    &--zinc_50 {
+    &.colors__swatch-color--zinc_50 {
       @apply bg-zinc-50;
     }
 
-    &--zinc_100 {
+    &.colors__swatch-color--zinc_100 {
       @apply bg-zinc-100;
     }
 
-    &--zinc_200 {
+    &.colors__swatch-color--zinc_200 {
       @apply bg-zinc-200;
     }
 
-    &--zinc_300 {
+    &.colors__swatch-color--zinc_300 {
       @apply bg-zinc-300;
     }
 
-    &--zinc_500 {
+    &.colors__swatch-color--zinc_500 {
       @apply bg-zinc-500;
     }
 
-    &--zinc_700 {
+    &.colors__swatch-color--zinc_700 {
       @apply bg-zinc-700;
     }
 
-    &--zinc_800 {
+    &.colors__swatch-color--zinc_800 {
       @apply bg-zinc-800;
     }
 
-    &--zinc_900 {
+    &.colors__swatch-color--zinc_900 {
       @apply bg-zinc-900;
     }
 
-    &--neutral_100 {
+    &.colors__swatch-color--neutral_100 {
       @apply bg-neutral-100;
     }
 
-    &--neutral_200 {
+    &.colors__swatch-color--neutral_200 {
       @apply bg-neutral-200;
     }
 
-    &--neutral_300 {
+    &.colors__swatch-color--neutral_300 {
       @apply bg-neutral-300;
     }
 
-    &--neutral_500 {
+    &.colors__swatch-color--neutral_500 {
       @apply bg-neutral-500;
     }
 
-    &--neutral_600 {
+    &.colors__swatch-color--neutral_600 {
       @apply bg-neutral-600;
     }
 
-    &--neutral_700 {
+    &.colors__swatch-color--neutral_700 {
       @apply bg-neutral-700;
     }
 
-    &--violet_50 {
+    &.colors__swatch-color--violet_50 {
       @apply bg-violet-50;
     }
 
-    &--violet_100 {
+    &.colors__swatch-color--violet_100 {
       @apply bg-violet-100;
     }
 
-    &--violet_200 {
+    &.colors__swatch-color--violet_200 {
       @apply bg-violet-200;
     }
 
-    &--violet_400 {
+    &.colors__swatch-color--violet_400 {
       @apply bg-violet-400;
     }
 
-    &--violet_500 {
+    &.colors__swatch-color--violet_500 {
       @apply bg-violet-500;
     }
 
-    &--violet_600 {
+    &.colors__swatch-color--violet_600 {
       @apply bg-violet-600;
     }
 
-    &--violet_700 {
+    &.colors__swatch-color--violet_700 {
       @apply bg-violet-700;
     }
 
-    &--violet_800 {
+    &.colors__swatch-color--violet_800 {
       @apply bg-violet-800;
     }
   }

@@ -53,11 +53,11 @@
   & .home-page__section {
     @apply border-t border-t-zinc-800/10 py-12;
 
-    &--narrow {
+    &.home-page__section--narrow {
       @apply max-w-3xl;
     }
 
-    &--contact {
+    &.home-page__section--contact {
       @apply grid items-start gap-6;
     }
   }
