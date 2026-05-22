@@ -7,7 +7,7 @@ import './home-page.css';
 export function HomePage() {
   return (
     <main className="home-page">
-      <section className="home-page__hero" aria-labelledby="hero-title">
+      <section className="home-page__hero" id="home" aria-labelledby="hero-title">
         <p className="home-page__eyebrow">Systems / Interfaces / Delivery</p>
         <div className="home-page__hero-grid">
           <div>

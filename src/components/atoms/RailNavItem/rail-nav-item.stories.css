@@ -1,0 +1,5 @@
+@reference '../../../styles/globals.css';
+
+.rail-nav-item-story {
+  @apply m-0 w-44 list-none border border-zinc-200 bg-stone-50 p-0;
+}
