@@ -1,0 +1,73 @@
+@reference '../../../styles/globals.css';
+
+.technical-systems-graph {
+  @apply grid gap-28 bg-black px-5 py-12 text-white;
+  margin-left: calc(
+    (
+        100% - 100vw + var(
+            --home-page-right-gutter,
+            var(--layout-page-gutter)
+          ) - var(--layout-page-gutter)
+      ) / 2
+  );
+  width: 100vw;
+
+  & .technical-systems-graph__teaser {
+    @apply mx-auto w-full max-w-[var(--layout-max-width)];
+  }
+
+  & .technical-systems-graph__workspace {
+    @apply grid w-full gap-6;
+  }
+
+  & .technical-systems-graph__canvas {
+    @apply relative overflow-hidden p-0;
+    min-height: 34rem;
+  }
+
+  & .technical-systems-graph__canvas:not(.technical-systems-graph__canvas--interactive) {
+    canvas {
+      @apply pointer-events-none;
+    }
+  }
+
+  & .technical-systems-graph__unlock,
+  & .technical-systems-graph__lock {
+    @apply absolute left-4 top-4 z-10 border border-white/15 bg-black/80 px-4 py-3 font-mono text-xs leading-none font-medium tracking-normal text-zinc-100 uppercase transition-colors duration-200;
+
+    &:hover,
+    &:focus-visible {
+      @apply border-violet-300/70 text-white;
+    }
+  }
+
+  & .technical-systems-graph__legend {
+    @apply mt-6;
+  }
+
+  & .technical-systems-graph__loading {
+    @apply grid min-h-[34rem] place-items-center font-mono text-xs leading-5 font-medium tracking-normal text-zinc-500 uppercase;
+  }
+}
+
+@media (min-width: 760px) {
+  .technical-systems-graph {
+    @apply px-12 py-20;
+
+    & .technical-systems-graph__canvas {
+      min-height: 38rem;
+    }
+
+    & .technical-systems-graph__legend {
+      @apply mt-0;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .technical-systems-graph {
+    & .technical-systems-graph__canvas {
+      min-height: 42rem;
+    }
+  }
+}

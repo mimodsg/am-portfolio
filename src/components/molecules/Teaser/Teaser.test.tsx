@@ -29,6 +29,7 @@ describe('Teaser', () => {
     );
 
     expect(container.firstChild).toHaveClass('teaser--horizontal');
+    expect(container.firstChild).toHaveClass('teaser--light');
   });
 
   it('supports a stacked layout variant', () => {
@@ -65,5 +66,17 @@ describe('Teaser', () => {
     expect(
       screen.queryByText('Selected roles and operating modes.'),
     ).not.toBeInTheDocument();
+  });
+
+  it('supports a dark context', () => {
+    const { container } = render(
+      <Teaser
+        context="dark"
+        eyebrow="Experience"
+        heading="Experience timeline"
+      />,
+    );
+
+    expect(container.firstChild).toHaveClass('teaser--dark');
   });
 });

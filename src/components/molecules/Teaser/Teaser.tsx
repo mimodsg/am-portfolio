@@ -5,8 +5,10 @@ import { cn } from '@/lib/cn';
 import './teaser.css';
 
 export type TeaserVariant = 'horizontal' | 'stacked' | 'big' | 'small';
+export type TeaserContext = 'light' | 'dark';
 
 export interface TeaserProps extends HTMLAttributes<HTMLDivElement> {
+  context?: TeaserContext;
   eyebrow: string;
   heading: string;
   headingId?: string;
@@ -16,6 +18,7 @@ export interface TeaserProps extends HTMLAttributes<HTMLDivElement> {
 
 export function Teaser({
   className,
+  context = 'light',
   eyebrow,
   heading,
   headingId,
@@ -26,7 +29,15 @@ export function Teaser({
   const shouldShowIntro = variant !== 'small' && intro;
 
   return (
-    <div className={cn('teaser', `teaser--${variant}`, className)} {...props}>
+    <div
+      className={cn(
+        'teaser',
+        `teaser--${variant}`,
+        `teaser--${context}`,
+        className,
+      )}
+      {...props}
+    >
       <p className="teaser__eyebrow">{eyebrow}</p>
       <div className="teaser__content">
         <h2 className="teaser__title" id={headingId}>

@@ -1,4 +1,5 @@
 import { ButtonLink } from '@/components/atoms/Button';
+import { TechnicalSystemsGraph } from '@/components/organisms/TechnicalSystemsGraph';
 import { WorkExperienceTimeline } from '@/components/organisms/WorkExperienceTimeline';
 import { experiencePoints } from '@/data/experience';
 import { projects } from '@/data/projects';
@@ -58,20 +59,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section
-        className="home-page__section home-page__section--narrow"
-        id="systems"
-        aria-labelledby="systems-title"
-      >
-        <p className="home-page__eyebrow">Systems Thinking</p>
-        <h2 className="home-page__section-title" id="systems-title">
-          Architecture is a product material.
-        </h2>
-        <p className="home-page__body">
-          The best interface work clarifies how a system behaves, how teams can
-          extend it, and how decisions remain visible after the initial build.
-        </p>
-      </section>
+      <TechnicalSystemsGraph />
 
       <section
         className="home-page__section home-page__section--contact"

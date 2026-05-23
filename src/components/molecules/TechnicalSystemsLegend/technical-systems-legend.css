@@ -1,0 +1,47 @@
+@reference '../../../styles/globals.css';
+
+.technical-systems-legend {
+  @apply grid max-w-sm content-start gap-4 border border-zinc-200 bg-stone-50 p-5 text-zinc-900;
+
+  @apply static;
+
+  &.technical-systems-legend--center,
+  &.technical-systems-legend--top-left,
+  &.technical-systems-legend--top-right,
+  &.technical-systems-legend--bottom-left,
+  &.technical-systems-legend--bottom-right {
+    @apply absolute z-20;
+  }
+
+  &.technical-systems-legend--center {
+    @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  &.technical-systems-legend--top-left {
+    @apply left-4 top-4;
+  }
+
+  &.technical-systems-legend--top-right {
+    @apply right-4 top-4;
+  }
+
+  &.technical-systems-legend--bottom-left {
+    @apply left-4 bottom-4;
+  }
+
+  &.technical-systems-legend--bottom-right {
+    @apply right-4 bottom-4;
+  }
+
+  & .technical-systems-legend__eyebrow {
+    @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-zinc-700 uppercase;
+  }
+
+  & .technical-systems-legend__title {
+    @apply m-0 font-body text-4xl leading-none font-normal tracking-normal text-zinc-900;
+  }
+
+  & .technical-systems-legend__content {
+    @apply m-0 font-mono text-sm leading-7 text-zinc-700;
+  }
+}

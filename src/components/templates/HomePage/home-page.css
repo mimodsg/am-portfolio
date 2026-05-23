@@ -2,8 +2,9 @@
 
 .home-page {
   @apply mx-auto max-w-[var(--layout-max-width)] pb-20;
+  --home-page-right-gutter: var(--layout-page-gutter);
   padding-left: var(--layout-page-gutter);
-  padding-right: var(--layout-page-gutter);
+  padding-right: var(--home-page-right-gutter);
 
   & .home-page__hero {
     @apply py-12 pt-16;
@@ -119,7 +120,7 @@
 
 @media (min-width: 1024px) {
   .home-page {
-    padding-right: max(var(--layout-page-gutter), 15rem);
+    --home-page-right-gutter: max(var(--layout-page-gutter), 15rem);
   }
 }
 
