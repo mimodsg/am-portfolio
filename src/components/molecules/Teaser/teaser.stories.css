@@ -5,3 +5,9 @@
   padding-left: var(--layout-page-gutter);
   padding-right: var(--layout-page-gutter);
 }
+
+.teaser-story.teaser-story--media {
+  @apply max-w-none py-0;
+  margin-left: 0;
+  margin-right: 0;
+}

@@ -52,6 +52,56 @@ describe('Teaser', () => {
     expect(container.firstChild).toHaveClass('teaser--big');
   });
 
+  it('supports a big media variant with a background image', () => {
+    const { container } = render(
+      <Teaser
+        backgroundMedia={{
+          src: '/project-preview.jpg',
+          type: 'image',
+        }}
+        eyebrow="Experience"
+        heading="Experience timeline"
+        variant="big-media"
+      />,
+    );
+
+    expect(container.firstChild).toHaveClass('teaser--big-media');
+    expect(container.querySelector('.teaser__media-image')).toHaveAttribute(
+      'src',
+      '/project-preview.jpg',
+    );
+  });
+
+  it('supports a big media variant with video and mobile fallback image', () => {
+    const { container } = render(
+      <Teaser
+        backgroundMedia={{
+          fallbackImageSrc: '/project-preview-mobile.jpg',
+          posterSrc: '/project-preview-poster.jpg',
+          src: '/project-preview.mp4',
+          type: 'video',
+        }}
+        context="dark"
+        eyebrow="Experience"
+        heading="Experience timeline"
+        variant="big-media"
+      />,
+    );
+
+    expect(container.firstChild).toHaveClass('teaser--dark');
+    expect(
+      container.querySelector('.teaser__media-image--fallback'),
+    ).toHaveAttribute('src', '/project-preview-mobile.jpg');
+    expect(container.querySelector('video')).toHaveAttribute(
+      'poster',
+      '/project-preview-poster.jpg',
+    );
+    expect(container.querySelector('source')).toHaveAttribute(
+      'src',
+      '/project-preview.mp4',
+    );
+  });
+
   it('supports a small layout variant without rendering intro copy', () => {
     const { container } = render(
       <Teaser
