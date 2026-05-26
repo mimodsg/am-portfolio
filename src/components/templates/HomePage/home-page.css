@@ -1,7 +1,7 @@
 @reference '../../../styles/globals.css';
 
 .home-page {
-  @apply mx-auto max-w-[var(--layout-max-width)] pb-20;
+  @apply mx-auto max-w-[var(--layout-max-width)];
   --home-page-right-gutter: var(--layout-page-gutter);
   padding-left: var(--layout-page-gutter);
   padding-right: var(--home-page-right-gutter);
@@ -59,7 +59,7 @@
     }
 
     &.home-page__section--contact {
-      @apply grid items-start gap-6;
+      @apply grid items-start gap-6 pb-20;
     }
   }
 
@@ -71,25 +71,6 @@
     @apply m-0 font-display text-3xl leading-tight font-normal tracking-normal text-zinc-800;
   }
 
-  & .home-page__projects {
-    @apply grid grid-cols-1 gap-4;
-  }
-
-  & .home-page__project {
-    @apply rounded-[var(--radius-lg)] border border-zinc-800/10 bg-stone-50 p-6 shadow-sm;
-
-    h3 {
-      @apply mb-4 mt-0 font-display text-2xl leading-tight font-normal text-zinc-800;
-    }
-
-    p {
-      @apply m-0 font-body leading-8 text-zinc-800;
-
-      + p {
-        @apply mt-4 text-neutral-600;
-      }
-    }
-  }
 }
 
 @media (min-width: 760px) {
@@ -112,9 +93,6 @@
       grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
     }
 
-    & .home-page__projects {
-      @apply grid-cols-2;
-    }
   }
 }
 

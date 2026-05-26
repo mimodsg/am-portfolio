@@ -1,18 +1,48 @@
-export interface Project {
+import landscapeImageUrl from '../../assets/images/landscape.jpg';
+
+export type FeaturedProjectTone = 'light' | 'dark';
+
+export interface FeaturedProject {
+  client: string;
   title: string;
-  context: string;
-  outcome: string;
+  description: string;
+  imageAlt: string;
+  imageSrc: string;
+  tone: FeaturedProjectTone;
+  palette: 'stone' | 'ink' | 'clay';
 }
 
-export const projects: Project[] = [
+export const featuredProjects: FeaturedProject[] = [
   {
-    title: 'Frontend Architecture',
-    context: 'Design systems, application foundations, and reusable interfaces.',
-    outcome: 'Durable UI platforms built for product teams and long-lived codebases.',
+    client: 'Independent product team',
+    title: 'Technical Systems Portfolio',
+    description:
+      'A focused editorial build that pairs systems thinking, interface structure, and implementation detail in a durable React foundation.',
+    imageAlt: 'Editorial landscape placeholder for the featured project preview.',
+    imageSrc: landscapeImageUrl,
+    tone: 'light',
+    palette: 'stone',
   },
   {
-    title: 'Systems Delivery',
-    context: 'Technical planning, engineering alignment, and implementation quality.',
-    outcome: 'Clear execution across ambiguous, cross-functional product work.',
+    client: 'Platform engineering group',
+    title: 'CMS Architecture System',
+    description:
+      'A structured authoring foundation for componentized publishing, reusable content models, and maintainable delivery workflows.',
+    imageAlt: 'Editorial landscape placeholder for the CMS architecture preview.',
+    imageSrc: landscapeImageUrl,
+    tone: 'dark',
+    palette: 'ink',
+  },
+  {
+    client: 'Design systems team',
+    title: 'Frontend Delivery Framework',
+    description:
+      'A reusable interface layer that connects design direction, technical standards, and implementation patterns across product surfaces.',
+    imageAlt: 'Editorial landscape placeholder for the frontend delivery preview.',
+    imageSrc: landscapeImageUrl,
+    tone: 'light',
+    palette: 'clay',
   },
 ];
+
+export const featuredProject = featuredProjects[0];

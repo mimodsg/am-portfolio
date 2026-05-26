@@ -1,0 +1,32 @@
+@reference '../../../styles/globals.css';
+
+.project-collection {
+  @apply relative grid w-screen bg-stone-100;
+  margin-left: calc(
+    (
+        100% - 100vw + var(
+            --home-page-right-gutter,
+            var(--layout-page-gutter)
+          ) - var(--layout-page-gutter)
+      ) / 2
+  );
+  width: 100vw;
+
+  & .project-collection__item {
+    @apply relative;
+  }
+}
+
+@media (min-width: 760px) {
+  .project-collection {
+    @apply block;
+
+    & .project-collection__item {
+      @apply sticky top-0 min-h-screen;
+    }
+
+    & .project-collection__item + .project-collection__item {
+      margin-top: -10rem;
+    }
+  }
+}

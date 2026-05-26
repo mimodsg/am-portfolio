@@ -1,0 +1,63 @@
+@reference '../../../styles/globals.css';
+
+.featured-project {
+  @apply w-full py-20;
+
+  &.featured-project--stone {
+    @apply bg-stone-100 text-zinc-800;
+  }
+
+  &.featured-project--ink {
+    @apply bg-zinc-950 text-white;
+  }
+
+  &.featured-project--clay {
+    @apply bg-orange-100 text-zinc-800;
+  }
+
+  & .featured-project__inner {
+    @apply mx-auto grid max-w-[var(--layout-max-width)] gap-10;
+    padding-left: var(--layout-page-gutter);
+    padding-right: var(--layout-page-gutter);
+  }
+
+  & .featured-project__teaser {
+    @apply max-w-5xl;
+  }
+
+  & .featured-project__intro {
+    @apply m-0 max-w-3xl font-body text-base leading-8;
+  }
+
+  &.featured-project--dark .featured-project__intro {
+    @apply text-zinc-200;
+  }
+
+  & .featured-project__image {
+    @apply mx-auto h-auto w-[95%] max-w-[95%] border border-zinc-800/10 bg-white object-cover shadow-sm;
+  }
+
+  &.featured-project--dark .featured-project__image {
+    @apply border-white/15;
+  }
+}
+
+@media (min-width: 760px) {
+  .featured-project {
+    @apply py-28;
+
+    & .featured-project__inner {
+      @apply gap-14;
+    }
+
+    & .featured-project__intro {
+      margin-left: min(16rem, 28%);
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .featured-project {
+    @apply py-36;
+  }
+}

@@ -1,8 +1,9 @@
 import { ButtonLink } from '@/components/atoms/Button';
+import { ProjectCollection } from '@/components/organisms/ProjectCollection';
 import { TechnicalSystemsGraph } from '@/components/organisms/TechnicalSystemsGraph';
 import { WorkExperienceTimeline } from '@/components/organisms/WorkExperienceTimeline';
 import { experiencePoints } from '@/data/experience';
-import { projects } from '@/data/projects';
+import { featuredProjects } from '@/data/projects';
 
 import './home-page.css';
 
@@ -22,7 +23,7 @@ export function HomePage() {
               equal weight.
             </p>
             <div className="home-page__actions">
-              <ButtonLink href="#work">View work</ButtonLink>
+              <ButtonLink href="#projects">View work</ButtonLink>
               <ButtonLink href="#contact" variant="outline">
                 Contact
               </ButtonLink>
@@ -41,23 +42,7 @@ export function HomePage() {
 
       <WorkExperienceTimeline />
 
-      <section className="home-page__section" id="work" aria-labelledby="work-title">
-        <div className="home-page__section-header">
-          <p className="home-page__eyebrow">Selected Work</p>
-          <h2 className="home-page__section-title" id="work-title">
-            Technical editorial dossiers.
-          </h2>
-        </div>
-        <div className="home-page__projects">
-          {projects.map((project) => (
-            <article className="home-page__project" key={project.title}>
-              <h3>{project.title}</h3>
-              <p>{project.context}</p>
-              <p>{project.outcome}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ProjectCollection projects={featuredProjects} />
 
       <TechnicalSystemsGraph />
 
