@@ -18,7 +18,7 @@ import robotoMonoFontUrl from '../../../../assets/font/Roboto_Mono/RobotoMono-Va
 
 const MAX_ZOOM = 3.6;
 const MIN_ZOOM = 0.7;
-const INITIAL_ZOOM = MAX_ZOOM * 0.75;
+const INITIAL_ZOOM = MAX_ZOOM * 0.55;
 
 export interface GraphNodePosition {
   x: number;
