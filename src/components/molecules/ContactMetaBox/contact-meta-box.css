@@ -1,0 +1,42 @@
+@reference '../../../styles/globals.css';
+
+.contact-meta-box {
+  @apply grid max-w-sm content-start border border-zinc-200 bg-stone-50 p-5 text-zinc-900;
+
+  & .contact-meta-box__list {
+    @apply m-0 grid list-none gap-1 p-0;
+  }
+
+  & .contact-meta-box__link {
+    @apply grid grid-cols-[auto_1fr] items-center gap-x-3 px-0 py-3 font-mono text-sm leading-6 text-zinc-900 no-underline transition-colors duration-150;
+
+    &:hover,
+    &:focus-visible {
+      @apply text-violet-600 outline-0;
+
+      & .contact-meta-box__icon {
+        @apply text-violet-600;
+      }
+    }
+
+    &:focus-visible {
+      @apply ring-2 ring-violet-600 ring-offset-2 ring-offset-stone-50;
+    }
+  }
+
+  & .contact-meta-box__icon {
+    @apply col-start-1 text-stone-200 transition-colors duration-150;
+  }
+
+  & .contact-meta-box__value {
+    @apply col-start-2 break-words text-xs font-medium text-zinc-900;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-meta-box {
+    & .contact-meta-box__link {
+      @apply transition-none;
+    }
+  }
+}
