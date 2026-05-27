@@ -129,4 +129,37 @@ describe('Teaser', () => {
 
     expect(container.firstChild).toHaveClass('teaser--dark');
   });
+
+  it('supports a custom heading level', () => {
+    render(
+      <Teaser
+        eyebrow="Experience"
+        heading="Experience timeline"
+        headingLevel={1}
+      />,
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Experience timeline',
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders manual line breaks in heading and intro content', () => {
+    const { container } = render(
+      <Teaser
+        eyebrow="Experience"
+        heading={'First line\n\nSecond line'}
+        intro={'Intro line one\nIntro line two'}
+      />,
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /First line Second line/i }),
+    ).toBeInTheDocument();
+    expect(container.querySelectorAll('.teaser__title br')).toHaveLength(2);
+    expect(container.querySelectorAll('.teaser__lede br')).toHaveLength(1);
+  });
 });

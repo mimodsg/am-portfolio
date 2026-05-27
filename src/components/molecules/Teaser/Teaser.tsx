@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import { Fragment, type HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/cn';
 
@@ -28,11 +28,21 @@ export type TeaserBackgroundMedia =
 export interface TeaserProps extends HTMLAttributes<HTMLDivElement> {
   backgroundMedia?: TeaserBackgroundMedia;
   context?: TeaserContext;
-  eyebrow: string;
+  eyebrow?: string;
   heading: string;
+  headingLevel?: 1 | 2 | 3;
   headingId?: string;
   intro?: string;
   variant?: TeaserVariant;
+}
+
+function renderTextWithLineBreaks(text: string) {
+  return text.split('\n').map((line, index) => (
+    <Fragment key={`${line}-${index}`}>
+      {index > 0 ? <br /> : null}
+      {line}
+    </Fragment>
+  ));
 }
 
 export function Teaser({
@@ -41,11 +51,13 @@ export function Teaser({
   context = 'light',
   eyebrow,
   heading,
+  headingLevel = 2,
   headingId,
   intro,
   variant = 'horizontal',
   ...props
 }: TeaserProps) {
+  const HeadingTag = `h${headingLevel}` as const;
   const shouldShowIntro = variant !== 'small' && intro;
   const shouldShowBackgroundMedia = variant === 'big-media' && backgroundMedia;
 
@@ -88,12 +100,14 @@ export function Teaser({
           )}
         </div>
       ) : null}
-      <p className="teaser__eyebrow">{eyebrow}</p>
+      {eyebrow ? <p className="teaser__eyebrow">{eyebrow}</p> : null}
       <div className="teaser__content">
-        <h2 className="teaser__title" id={headingId}>
-          {heading}
-        </h2>
-        {shouldShowIntro ? <p className="teaser__lede">{intro}</p> : null}
+        <HeadingTag className="teaser__title" id={headingId}>
+          {renderTextWithLineBreaks(heading)}
+        </HeadingTag>
+        {shouldShowIntro ? (
+          <p className="teaser__lede">{renderTextWithLineBreaks(intro)}</p>
+        ) : null}
       </div>
     </div>
   );

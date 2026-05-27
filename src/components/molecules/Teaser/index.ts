@@ -1,2 +1,7 @@
 export { Teaser } from './Teaser';
-export type { TeaserProps } from './Teaser';
+export type {
+  TeaserBackgroundMedia,
+  TeaserContext,
+  TeaserProps,
+  TeaserVariant,
+} from './Teaser';
