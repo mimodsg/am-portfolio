@@ -20,17 +20,19 @@
     }
 
     &:hover .rail-nav-item__index,
-    &[aria-current='true'] .rail-nav-item__index {
+    &[aria-current='true'] .rail-nav-item__index,
+    &:hover .rail-nav-item__label,
+    &[aria-current='true'] .rail-nav-item__label {
       @apply text-violet-600;
     }
   }
 
   & .rail-nav-item__index {
-    @apply text-2xl leading-none font-thin text-zinc-800;
+    @apply text-2xl leading-none font-thin text-zinc-800 transition-colors duration-200 ease-out;
   }
 
   & .rail-nav-item__label {
-    @apply min-w-0 leading-5 text-zinc-800;
+    @apply min-w-0 leading-5 text-zinc-800 transition-colors duration-200 ease-out;
   }
 }
 
