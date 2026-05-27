@@ -1,7 +1,7 @@
 @reference '../../../styles/globals.css';
 
 .technical-systems-legend {
-  @apply grid max-w-sm content-start gap-4 border border-zinc-200 bg-stone-50 p-5 text-zinc-900;
+  @apply grid max-w-sm content-start gap-4 border border-zinc-200 bg-stone-50 p-5 rounded-lg text-zinc-900;
 
   @apply static;
 
