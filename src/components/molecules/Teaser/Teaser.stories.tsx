@@ -23,8 +23,11 @@ export const Default: Story = {
   args: {
     eyebrow: 'Experience',
     heading: 'A timeline of systems, delivery, and craft.',
+
     intro:
       'A compact view of the roles and operating modes that shaped a systems-oriented engineering practice.',
+
+    context: 'light',
   },
   render: (args) => (
     <main className="teaser-story">

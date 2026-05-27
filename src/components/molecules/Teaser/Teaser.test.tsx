@@ -1,9 +1,53 @@
+import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { Teaser } from './Teaser';
 
+const gsapMocks = vi.hoisted(() => ({
+  fromTo: vi.fn(),
+  registerPlugin: vi.fn(),
+  revert: vi.fn(),
+}));
+
+vi.mock('gsap', () => ({
+  gsap: {
+    context: (callback: () => void) => {
+      callback();
+
+      return {
+        revert: gsapMocks.revert,
+      };
+    },
+    fromTo: gsapMocks.fromTo,
+    registerPlugin: gsapMocks.registerPlugin,
+  },
+}));
+
+vi.mock('gsap/ScrollTrigger', () => ({
+  ScrollTrigger: {},
+}));
+
 describe('Teaser', () => {
+  beforeEach(() => {
+    gsapMocks.fromTo.mockClear();
+    gsapMocks.registerPlugin.mockClear();
+    gsapMocks.revert.mockClear();
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      value: vi.fn().mockImplementation(() => ({
+        addEventListener: vi.fn(),
+        addListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+        matches: false,
+        media: '(prefers-reduced-motion: reduce)',
+        onchange: null,
+        removeEventListener: vi.fn(),
+        removeListener: vi.fn(),
+      })),
+    });
+  });
+
   it('renders an eyebrow, heading, and intro', () => {
     render(
       <Teaser
@@ -116,6 +160,7 @@ describe('Teaser', () => {
     expect(
       screen.queryByText('Selected roles and operating modes.'),
     ).not.toBeInTheDocument();
+    expect(gsapMocks.fromTo).not.toHaveBeenCalled();
   });
 
   it('supports a dark context', () => {
@@ -128,6 +173,20 @@ describe('Teaser', () => {
     );
 
     expect(container.firstChild).toHaveClass('teaser--dark');
+  });
+
+  it('supports alignment modifiers', () => {
+    const { container } = render(
+      <Teaser
+        align="right"
+        eyebrow="Experience"
+        heading="Experience timeline"
+        intro="Selected roles and operating modes."
+        variant="stacked"
+      />,
+    );
+
+    expect(container.firstChild).toHaveClass('teaser--right');
   });
 
   it('supports a custom heading level', () => {
@@ -161,5 +220,19 @@ describe('Teaser', () => {
     ).toBeInTheDocument();
     expect(container.querySelectorAll('.teaser__title br')).toHaveLength(2);
     expect(container.querySelectorAll('.teaser__lede br')).toHaveLength(1);
+  });
+
+  it('registers a heading parallax animation for non-small variants', () => {
+    render(
+      <Teaser
+        eyebrow="Experience"
+        heading="Experience timeline"
+        intro="Selected roles and operating modes."
+        variant="stacked"
+      />,
+    );
+
+    expect(gsapMocks.registerPlugin).toHaveBeenCalled();
+    expect(gsapMocks.fromTo).toHaveBeenCalled();
   });
 });
