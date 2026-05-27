@@ -9,18 +9,38 @@
 
   &.button--primary {
     @apply border border-zinc-800 bg-zinc-800 text-stone-50;
+
+    &:hover,
+    &:focus-visible {
+      @apply border-zinc-950 bg-zinc-950;
+    }
   }
 
   &.button--secondary {
-    @apply border border-zinc-800/15 bg-zinc-800/5 text-zinc-800;
+    @apply border border-zinc-200 bg-stone-50 text-zinc-800;
+
+    &:hover,
+    &:focus-visible {
+      @apply border-zinc-300 bg-stone-100;
+    }
   }
 
   &.button--outline {
     @apply border border-zinc-800/10 bg-transparent text-zinc-800;
+
+    &:hover,
+    &:focus-visible {
+      @apply border-zinc-800/20 bg-zinc-800/5;
+    }
   }
 
   &.button--ghost {
     @apply border border-transparent bg-transparent px-4 py-3 text-neutral-600;
+
+    &:hover,
+    &:focus-visible {
+      @apply bg-zinc-800/5 text-zinc-800;
+    }
   }
 }
 
