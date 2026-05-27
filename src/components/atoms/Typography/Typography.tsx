@@ -86,3 +86,27 @@ export function Eyebrow({
     </p>
   );
 }
+
+export function Quote({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLQuoteElement>) {
+  return (
+    <blockquote className={cn('type-quote', className)} {...props}>
+      {children}
+    </blockquote>
+  );
+}
+
+export function Citation({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLElement>) {
+  return (
+    <cite className={cn('type-citation', className)} {...props}>
+      {children}
+    </cite>
+  );
+}

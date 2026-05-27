@@ -91,6 +91,14 @@
   @apply m-0 font-mono text-xs leading-5 font-medium tracking-normal text-neutral-600 uppercase;
 }
 
+.type-quote {
+  @apply m-0 border-l-2 border-l-violet-600 pl-5 font-display text-4xl leading-tight text-zinc-800 md:text-5xl;
+}
+
+.type-citation {
+  @apply font-mono text-xs leading-5 font-medium text-neutral-600 not-italic uppercase;
+}
+
 .typography-story {
   @apply mx-auto grid max-w-[var(--layout-max-width)] gap-20 bg-stone-50 py-20 text-zinc-800;
   padding-left: var(--layout-page-gutter);
