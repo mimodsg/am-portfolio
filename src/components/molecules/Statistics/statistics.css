@@ -1,0 +1,13 @@
+@reference '../../../styles/globals.css';
+
+.statistics {
+  @apply grid;
+
+  & .statistics__item {
+    @apply border-b border-zinc-200 py-4;
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+}

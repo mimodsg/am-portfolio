@@ -1,0 +1,22 @@
+@reference '../../../styles/globals.css';
+
+.horizontal-bar-graph {
+
+  @apply grid grid-cols-[30%_60%_10%] items-center gap-4 font-mono text-xs leading-5 font-medium text-zinc-800;
+
+  & .horizontal-bar-graph__label,
+  & .horizontal-bar-graph__percentage {
+    @apply whitespace-nowrap;
+  }
+
+  & .horizontal-bar-graph__track {
+    @apply h-2 w-full overflow-hidden rounded-full bg-stone-200;
+  }
+
+  & .horizontal-bar-graph__fill {
+    @apply block h-full rounded-full;
+    width: var(--horizontal-bar-graph-value);
+    background-color: var(--horizontal-bar-graph-fill);
+  }
+
+}
