@@ -1,7 +1,7 @@
 @reference '../../../styles/globals.css';
 
 .contact-meta-box {
-  @apply grid max-w-sm content-start border border-zinc-200 bg-stone-50 p-5 text-zinc-900;
+  @apply grid max-w-sm content-start border border-zinc-200 bg-stone-50 p-5 text-zinc-900 rounded-lg;
 
   & .contact-meta-box__list {
     @apply m-0 grid list-none gap-1 p-0;

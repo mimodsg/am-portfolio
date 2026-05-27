@@ -30,6 +30,8 @@ export function ContactMetaBox({
               aria-label={item.label}
               className="contact-meta-box__link"
               href={item.href}
+              target="_blank"
+              rel='nofollow'
             >
               <HeroIcon
                 aria-hidden="true"
