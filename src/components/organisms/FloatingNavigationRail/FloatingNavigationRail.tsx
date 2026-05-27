@@ -17,7 +17,7 @@ const DEFAULT_ITEMS: FloatingNavigationRailItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Systems', href: '#systems' },
+  { label: 'Knowledge', href: '#knowledge' },
   { label: 'Writing', href: '#writing' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -66,8 +66,8 @@ export function FloatingNavigationRail({
         }
       },
       {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: [0.1, 0.4, 0.8],
+        rootMargin: '-45% 0px -45% 0px',
+        threshold: [0, 0.01],
       },
     );
 

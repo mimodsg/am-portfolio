@@ -1,7 +1,9 @@
 @reference '../../../styles/globals.css';
 
 .profile-overview {
-  @apply grid gap-10 py-12;
+  @apply grid;
+  gap: var(--space-section-gap);
+  padding-block: var(--space-section-y);
 
   & .profile-overview__teaser {
     @apply max-w-4xl;
@@ -16,7 +18,8 @@
   }
 
   & .profile-overview__grid {
-    @apply grid grid-cols-1 gap-8;
+    @apply grid grid-cols-1;
+    gap: var(--space-section-gap-tight);
   }
 
   & .profile-overview__image {
@@ -28,20 +31,35 @@
   & .profile-overview__contact {
     @apply w-full max-w-none self-start;
   }
+
+  & .profile-overview__contact {
+    @apply pt-2;
+  }
 }
 
 @media (min-width: 760px) {
   .profile-overview {
-    @apply gap-14 py-20;
-
     & .profile-overview__grid {
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(16rem, 0.8fr);
+      @apply items-center;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
     }
-  }
-}
 
-@media (min-width: 1100px) {
-  .profile-overview {
-    @apply py-24;
+    & .profile-overview__image {
+      @apply rounded-4xl;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    & .profile-overview__statistics {
+      @apply self-center;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    & .profile-overview__contact {
+      @apply pt-0;
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
   }
 }

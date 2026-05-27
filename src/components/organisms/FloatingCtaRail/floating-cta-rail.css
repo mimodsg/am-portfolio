@@ -1,0 +1,9 @@
+@reference '../../../styles/globals.css';
+
+.floating-cta-rail {
+  @apply fixed bottom-6 left-6 z-40 hidden w-44 flex-col gap-3 lg:flex;
+
+  & .floating-cta-rail__button {
+    @apply w-full;
+  }
+}

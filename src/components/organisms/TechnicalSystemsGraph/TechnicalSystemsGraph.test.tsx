@@ -41,14 +41,19 @@ describe('TechnicalSystemsGraph', () => {
     expect(
       screen.getByRole('region', { name: 'Technical systems' }),
     ).toBeInTheDocument();
-    expect(await screen.findByRole('button', { name: 'Frontend' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Backend' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Platform' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /React/i })).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /Design Systems/i }),
+      await screen.findByRole('button', { name: 'Architecture' }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Frontend' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Backend' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Tools' })).toBeInTheDocument();
+    expect(
+      screen.getAllByRole('button', { name: 'Leadership' }).length,
+    ).toBeGreaterThan(0);
+    expect(screen.getByRole('button', { name: /React/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Drupal/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Shopify/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Storybook/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Laravel/i })).toBeInTheDocument();
   });
 
@@ -73,7 +78,7 @@ describe('TechnicalSystemsGraph', () => {
 
     expect(screen.getByRole('heading', { name: 'Gutenberg' })).toBeInTheDocument();
     expect(
-      screen.getByText(/Block editor workflows and componentized authoring/i),
+      screen.getByText(/Block-based editorial experiences and componentized content workflows/i),
     ).toBeInTheDocument();
 
     await user.unhover(node);

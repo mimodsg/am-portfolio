@@ -21,7 +21,7 @@ const sectionLabels = [
   'About',
   'Experience',
   'Projects',
-  'Systems',
+  'Knowledge',
   'Writing',
   'Contact',
 ];

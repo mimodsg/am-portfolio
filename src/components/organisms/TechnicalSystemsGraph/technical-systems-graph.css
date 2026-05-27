@@ -1,7 +1,9 @@
 @reference '../../../styles/globals.css';
 
 .technical-systems-graph {
-  @apply grid gap-28 bg-black px-5 py-12 text-white;
+  @apply grid bg-black text-white;
+  gap: var(--space-section-gap-loose);
+  padding-top: var(--space-section-y);
   margin-left: calc(
     (
         100% - 100vw + var(
@@ -13,7 +15,16 @@
   width: 100vw;
 
   & .technical-systems-graph__teaser {
-    @apply mx-auto w-full max-w-[var(--layout-max-width)];
+    @apply mx-auto w-full;
+    max-width: var(
+      --home-page-content-max-width,
+      calc(var(--layout-max-width) - (var(--layout-page-gutter) * 2))
+    );
+    padding-left: var(--layout-page-gutter);
+    padding-right: var(
+      --home-page-right-gutter,
+      var(--layout-page-gutter)
+    );
   }
 
   &.technical-systems-graph--center .technical-systems-graph__teaser {
@@ -25,7 +36,13 @@
   }
 
   & .technical-systems-graph__workspace {
-    @apply grid w-full gap-6;
+    @apply grid w-full;
+    gap: var(--space-section-gap-tight);
+    padding-left: var(--layout-page-gutter);
+    padding-right: var(
+      --home-page-right-gutter,
+      var(--layout-page-gutter)
+    );
   }
 
   & .technical-systems-graph__canvas {
@@ -60,8 +77,6 @@
 
 @media (min-width: 760px) {
   .technical-systems-graph {
-    @apply px-12 py-20;
-
     & .technical-systems-graph__canvas {
       min-height: 38rem;
     }

@@ -1,8 +1,40 @@
+import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { featuredProjects } from '@/data/projects';
 
 import { ProjectCollection } from './ProjectCollection';
+
+const gsapMocks = vi.hoisted(() => ({
+  create: vi.fn(),
+  registerPlugin: vi.fn(),
+  revert: vi.fn(),
+  to: vi.fn(),
+}));
+
+vi.mock('gsap', () => ({
+  gsap: {
+    context: (callback: () => void) => {
+      callback();
+
+      return {
+        revert: gsapMocks.revert,
+      };
+    },
+    registerPlugin: gsapMocks.registerPlugin,
+    to: gsapMocks.to,
+    utils: {
+      toArray: (selector: string) =>
+        Array.from(document.querySelectorAll<HTMLElement>(selector)),
+    },
+  },
+}));
+
+vi.mock('gsap/ScrollTrigger', () => ({
+  ScrollTrigger: {
+    create: gsapMocks.create,
+  },
+}));
 
 describe('ProjectCollection', () => {
   it('renders each featured project in the collection', () => {

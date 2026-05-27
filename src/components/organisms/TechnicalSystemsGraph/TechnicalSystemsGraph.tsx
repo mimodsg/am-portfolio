@@ -8,6 +8,10 @@ import type {
 
 import { Teaser } from '@/components/molecules/Teaser';
 import { TechnicalSystemsLegend } from '@/components/molecules/TechnicalSystemsLegend';
+import type {
+  TechnicalSystemEdge,
+  TechnicalSystemNode,
+} from '@/data/technicalSystems';
 import type { GraphNodePosition } from './ReagraphSystemsCanvas';
 import {
   technicalSystemEdges,
@@ -19,18 +23,12 @@ import type { SectionAlign } from '@/types/sectionAlignment';
 import './technical-systems-graph.css';
 
 const HUB_NODE_ID = 'technical-systems';
-const ROOT_NODE_IDS = new Set(['frontend', 'backend', 'platform']);
 type DraggedNodePositions = Record<string, InternalGraphPosition>;
-type BranchId = 'frontend' | 'backend' | 'platform';
-
-const ROOT_LAYOUT: Record<BranchId, { angle: number; radius: number; spread: number }> = {
-  frontend: { angle: 150, radius: 95, spread: 82 },
-  platform: { angle: 30, radius: 95, spread: 72 },
-  backend: { angle: 275, radius: 100, spread: 155 },
-};
-
-const CHILD_RADIUS = 80;
+const ROOT_RADIUS = 108;
+const CHILD_RADIUS = 82;
 const MIN_BRANCH_RADIUS = 40;
+const ROOT_ANGLE_START = 205;
+const ROOT_ANGLE_SWEEP = 310;
 
 const ReagraphSystemsCanvas = lazy(() =>
   import('./ReagraphSystemsCanvas').then((module) => ({
@@ -41,10 +39,12 @@ const ReagraphSystemsCanvas = lazy(() =>
 export interface TechnicalSystemsGraphProps
   extends HTMLAttributes<HTMLElement> {
   align?: SectionAlign;
-  heading?: string;
   eyebrow?: string;
+  edges?: TechnicalSystemEdge[];
+  heading?: string;
   intro?: string;
   headingId?: string;
+  nodes?: TechnicalSystemNode[];
 }
 
 function polarToPosition(
@@ -76,26 +76,51 @@ function getChildAngles(
   return Array.from({ length: childCount }, (_, index) => start + step * index);
 }
 
-function createGraphNodePositions(): Record<string, GraphNodePosition> {
+function getRootNodeIds(edges: TechnicalSystemEdge[]) {
+  return edges.filter((edge) => edge.from === HUB_NODE_ID).map((edge) => edge.to);
+}
+
+function getRootAngles(rootCount: number) {
+  if (rootCount <= 1) {
+    return [ROOT_ANGLE_START - ROOT_ANGLE_SWEEP / 2];
+  }
+
+  const step = ROOT_ANGLE_SWEEP / (rootCount - 1);
+
+  return Array.from(
+    { length: rootCount },
+    (_, index) => ROOT_ANGLE_START - step * index,
+  );
+}
+
+function createGraphNodePositions(
+  edges: TechnicalSystemEdge[],
+): Record<string, GraphNodePosition> {
   const positions: Record<string, GraphNodePosition> = {
     [HUB_NODE_ID]: { x: 0, y: 0, z: 0 },
   };
 
-  const childrenByParent = technicalSystemEdges.reduce<
+  const childrenByParent = edges.reduce<
     Record<string, string[]>
   >((groups, edge) => {
     groups[edge.from] = [...(groups[edge.from] ?? []), edge.to];
     return groups;
   }, {});
+  const rootNodeIds = getRootNodeIds(edges);
+  const rootAngles = getRootAngles(rootNodeIds.length);
 
   const placeDescendants = (
     parentId: string,
     parentPosition: GraphNodePosition,
     parentAngle: number,
-    spread: number,
+    depth: number,
     radius: number,
   ) => {
     const children = childrenByParent[parentId] ?? [];
+    const spread = Math.max(
+      36,
+      Math.min(150, 22 + children.length * 18 - depth * 8),
+    );
     const childAngles = getChildAngles(parentAngle, spread, children.length);
 
     children.forEach((childId, index) => {
@@ -108,26 +133,26 @@ function createGraphNodePositions(): Record<string, GraphNodePosition> {
         childId,
         childPosition,
         childAngle,
-        Math.max(44, spread * 0.62),
+        depth + 1,
         Math.max(MIN_BRANCH_RADIUS, radius * 0.72),
       );
     });
   };
 
-  (Object.keys(ROOT_LAYOUT) as BranchId[]).forEach((rootId) => {
-    const rootLayout = ROOT_LAYOUT[rootId];
+  rootNodeIds.forEach((rootId, index) => {
+    const rootAngle = rootAngles[index];
     const rootPosition = polarToPosition(
       positions[HUB_NODE_ID],
-      rootLayout.angle,
-      rootLayout.radius,
+      rootAngle,
+      ROOT_RADIUS,
     );
 
     positions[rootId] = rootPosition;
     placeDescendants(
       rootId,
       rootPosition,
-      rootLayout.angle,
-      rootLayout.spread,
+      rootAngle,
+      1,
       CHILD_RADIUS,
     );
   });
@@ -138,25 +163,30 @@ function createGraphNodePositions(): Record<string, GraphNodePosition> {
 export function TechnicalSystemsGraph({
   align = 'left',
   className,
+  edges = technicalSystemEdges,
   heading = 'Technical systems',
   eyebrow = 'Systems Thinking',
+  id = 'knowledge',
   intro = 'A connected view of the technologies I use to shape frontend systems, CMS architecture, and backend platform decisions.',
-  headingId = 'technical-systems-title',
+  headingId,
+  nodes = technicalSystemNodes,
   ...props
 }: TechnicalSystemsGraphProps) {
+  const resolvedHeadingId = headingId ?? `${id}-title`;
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [isGraphInteractive, setIsGraphInteractive] = useState(false);
   const [draggedNodePositions, setDraggedNodePositions] =
     useState<DraggedNodePositions>({});
 
+  const rootNodeIds = useMemo(() => new Set(getRootNodeIds(edges)), [edges]);
   const hoveredNode = useMemo(
-    () => technicalSystemNodes.find((node) => node.id === hoveredNodeId),
-    [hoveredNodeId],
+    () => nodes.find((node) => node.id === hoveredNodeId),
+    [hoveredNodeId, nodes],
   );
 
   const graphNodes = useMemo<GraphNode[]>(
     () =>
-      technicalSystemNodes.map((node) => ({
+      nodes.map((node) => ({
         id: node.id,
         label: node.label,
         cluster: node.cluster,
@@ -164,14 +194,14 @@ export function TechnicalSystemsGraph({
         fill: '#e4e4e7',
         labelVisible: true,
         size:
-          node.id === HUB_NODE_ID ? 79 : ROOT_NODE_IDS.has(node.id) ? 71 : 54,
+          node.id === HUB_NODE_ID ? 79 : rootNodeIds.has(node.id) ? 71 : 54,
       })),
-    [],
+    [nodes, rootNodeIds],
   );
 
   const graphEdges = useMemo<GraphEdge[]>(
     () =>
-      technicalSystemEdges.map((edge) => ({
+      edges.map((edge) => ({
         id: `${edge.from}-${edge.to}`,
         source: edge.from,
         target: edge.to,
@@ -179,10 +209,10 @@ export function TechnicalSystemsGraph({
         interpolation: 'linear',
         arrowPlacement: 'none',
       })),
-    [],
+    [edges],
   );
 
-  const graphNodePositions = useMemo(() => createGraphNodePositions(), []);
+  const graphNodePositions = useMemo(() => createGraphNodePositions(edges), [edges]);
 
   const handleNodePointerOver = (node: InternalGraphNode) => {
     setHoveredNodeId(node.id);
@@ -198,21 +228,22 @@ export function TechnicalSystemsGraph({
 
   return (
     <section
-      aria-labelledby={headingId}
+      aria-labelledby={resolvedHeadingId}
       className={cn(
         'technical-systems-graph',
         `technical-systems-graph--${align}`,
         className,
       )}
-      id="systems"
+      id={id}
       {...props}
     >
       <Teaser
+        align={align}
         className="technical-systems-graph__teaser"
         context="dark"
         eyebrow={eyebrow}
         heading={heading}
-        headingId={headingId}
+        headingId={resolvedHeadingId}
         intro={intro}
         variant="stacked"
       />

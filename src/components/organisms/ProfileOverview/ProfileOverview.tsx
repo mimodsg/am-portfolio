@@ -44,6 +44,7 @@ export function ProfileOverview({
       {...props}
     >
       <Teaser
+        align={align}
         className="profile-overview__teaser"
         context={teaserContext}
         eyebrow={eyebrow}
@@ -67,6 +68,7 @@ export function ProfileOverview({
         <ContactMetaBox
           className="profile-overview__contact"
           items={contactItems}
+          variant="horizontal"
         />
       </div>
     </section>

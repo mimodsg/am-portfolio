@@ -1,7 +1,7 @@
 @reference '../../../styles/globals.css';
 
 .floating-navigation-rail {
-  @apply fixed bottom-6 right-6 z-40 hidden w-44 flex-col overflow-hidden rounded-lg border border-zinc-200 bg-stone-50/95 text-zinc-800 backdrop-blur lg:flex;
+  @apply fixed bottom-6 right-6 z-40 hidden w-44 flex-col overflow-hidden rounded-lg border border-zinc-200 bg-stone-50/90 text-zinc-800 backdrop-blur lg:flex;
 
   & .floating-navigation-rail__nav {
     @apply flex items-start border-b border-zinc-200 py-8;

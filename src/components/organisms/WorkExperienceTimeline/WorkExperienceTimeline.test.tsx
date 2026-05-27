@@ -7,8 +7,11 @@ import { WorkExperienceTimeline } from './WorkExperienceTimeline';
 
 const gsapMocks = vi.hoisted(() => ({
   fromTo: vi.fn(),
+  killTweensOf: vi.fn(),
   registerPlugin: vi.fn(),
   revert: vi.fn(),
+  set: vi.fn(),
+  to: vi.fn(),
 }));
 
 vi.mock('gsap', () => ({
@@ -21,7 +24,10 @@ vi.mock('gsap', () => ({
       };
     }),
     fromTo: gsapMocks.fromTo,
+    killTweensOf: gsapMocks.killTweensOf,
     registerPlugin: gsapMocks.registerPlugin,
+    set: gsapMocks.set,
+    to: gsapMocks.to,
     utils: {
       toArray: (selector: string) =>
         Array.from(document.querySelectorAll(selector)),
@@ -30,7 +36,9 @@ vi.mock('gsap', () => ({
 }));
 
 vi.mock('gsap/ScrollTrigger', () => ({
-  ScrollTrigger: {},
+  ScrollTrigger: {
+    refresh: vi.fn(),
+  },
 }));
 
 const customItems: WorkExperienceTimelineEntry[] = [

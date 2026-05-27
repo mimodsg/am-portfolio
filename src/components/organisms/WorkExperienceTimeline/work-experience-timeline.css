@@ -1,7 +1,8 @@
 @reference '../../../styles/globals.css';
 
 .work-experience-timeline {
-  @apply border-t border-t-zinc-200 py-16 text-zinc-800;
+  @apply border-t border-t-zinc-200 text-zinc-800;
+  padding-block: var(--space-section-y);
 
   & .work-experience-timeline__teaser {
     @apply max-w-4xl;
@@ -16,7 +17,13 @@
   }
 
   & .work-experience-timeline__track {
-    @apply relative m-0 mt-16 grid list-none gap-16 p-0;
+    @apply relative m-0 grid list-none p-0;
+    margin-top: var(--space-section-gap-loose);
+    gap: var(--space-section-gap-loose);
+  }
+
+  & .work-experience-timeline__track-wrap {
+    @apply min-w-0;
   }
 
   & .work-experience-timeline__rule {
@@ -24,7 +31,8 @@
   }
 
   & .work-experience-timeline__item {
-    @apply relative z-10 grid gap-5 pl-10;
+    @apply relative z-10 grid pl-10;
+    gap: var(--space-section-gap-tight);
   }
 
   & .work-experience-timeline__date {
@@ -50,18 +58,13 @@
   }
 
   & .work-experience-timeline__actions {
-    @apply mt-16 flex justify-start;
+    @apply flex justify-start;
+    margin-top: var(--space-section-gap-loose);
   }
 }
 
 @media (min-width: 760px) {
   .work-experience-timeline {
-    @apply py-24;
-
-    & .work-experience-timeline__track {
-      @apply mt-32 gap-24;
-    }
-
     & .work-experience-timeline__rule {
       @apply left-1/2;
     }
@@ -103,7 +106,7 @@
     }
 
     & .work-experience-timeline__actions {
-      @apply mt-24 justify-center;
+      @apply justify-center;
     }
   }
 }

@@ -2,6 +2,7 @@
 
 .project-collection {
   @apply relative grid w-screen bg-stone-100;
+  --project-collection-overlap: 44rem;
   margin-left: calc(
     (
         100% - 100vw + var(
@@ -12,6 +13,8 @@
   );
   width: 100vw;
 
+  & .project-collection__stack,
+  & .project-collection__card,
   & .project-collection__item {
     @apply relative;
   }
@@ -35,12 +38,13 @@
   .project-collection {
     @apply block;
 
-    & .project-collection__item {
-      @apply sticky top-0 min-h-screen;
+    & .project-collection__card {
+      @apply h-screen overflow-hidden;
+      will-change: transform;
     }
 
-    & .project-collection__item + .project-collection__item {
-      margin-top: -10rem;
+    & .project-collection__stack + .project-collection__stack {
+      margin-top: calc(var(--project-collection-overlap) * -1);
     }
   }
 }

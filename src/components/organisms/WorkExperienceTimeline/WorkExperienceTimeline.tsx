@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { HTMLAttributes } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -43,6 +43,8 @@ export function WorkExperienceTimeline({
   ...props
 }: WorkExperienceTimelineProps) {
   const timelineRef = useRef<HTMLElement>(null);
+  const trackWrapperRef = useRef<HTMLDivElement>(null);
+  const pendingTrackHeightRef = useRef<number | null>(null);
   const headingId = `${id}-title`;
   const trackId = `${id}-timeline`;
   const [isExpanded, setIsExpanded] = useState(false);
@@ -51,6 +53,48 @@ export function WorkExperienceTimeline({
     () => (isExpanded ? items : items.slice(0, initialVisibleCount)),
     [initialVisibleCount, isExpanded, items],
   );
+
+  useLayoutEffect(() => {
+    const wrapper = trackWrapperRef.current;
+
+    if (!wrapper) {
+      return;
+    }
+
+    const refreshScrollTriggers = () => {
+      if (typeof ScrollTrigger.refresh === 'function') {
+        ScrollTrigger.refresh();
+      }
+    };
+
+    const startHeight = pendingTrackHeightRef.current;
+
+    if (startHeight == null) {
+      refreshScrollTriggers();
+      return;
+    }
+
+    pendingTrackHeightRef.current = null;
+
+    if (!allowsScrollAnimation()) {
+      refreshScrollTriggers();
+      return;
+    }
+
+    const endHeight = wrapper.scrollHeight;
+
+    gsap.killTweensOf(wrapper);
+    gsap.set(wrapper, { height: startHeight, overflow: 'hidden' });
+    gsap.to(wrapper, {
+      duration: 0.45,
+      ease: 'power2.inOut',
+      height: endHeight,
+      onComplete: () => {
+        gsap.set(wrapper, { clearProps: 'height,overflow' });
+        refreshScrollTriggers();
+      },
+    });
+  }, [visibleItems.length]);
 
   useEffect(() => {
     const root = timelineRef.current;
@@ -125,6 +169,11 @@ export function WorkExperienceTimeline({
     };
   }, [visibleItems.length]);
 
+  const handleToggleExpanded = () => {
+    pendingTrackHeightRef.current = trackWrapperRef.current?.offsetHeight ?? null;
+    setIsExpanded((currentValue) => !currentValue);
+  };
+
   return (
     <section
       aria-labelledby={headingId}
@@ -138,6 +187,7 @@ export function WorkExperienceTimeline({
       {...props}
     >
       <Teaser
+        align={align}
         className="work-experience-timeline__teaser"
         eyebrow={eyebrow}
         heading={heading}
@@ -145,53 +195,55 @@ export function WorkExperienceTimeline({
         intro={intro}
       />
 
-      <ol className="work-experience-timeline__track" id={trackId}>
-        <li aria-hidden="true" className="work-experience-timeline__rule" />
-        {visibleItems.map((item, index) => {
-          const isLeftAligned = index % 2 === 0;
+      <div className="work-experience-timeline__track-wrap" ref={trackWrapperRef}>
+        <ol className="work-experience-timeline__track" id={trackId}>
+          <li aria-hidden="true" className="work-experience-timeline__rule" />
+          {visibleItems.map((item, index) => {
+            const isLeftAligned = index % 2 === 0;
 
-          return (
-            <li
-              className={cn(
-                'work-experience-timeline__item',
-                isLeftAligned
-                  ? 'work-experience-timeline__item--left'
-                  : 'work-experience-timeline__item--right',
-              )}
-              key={item.id}
-            >
-              <TimelineDate className="work-experience-timeline__date">
-                {item.period}
-              </TimelineDate>
-
-              <div
-                className="work-experience-timeline__axis"
-                aria-hidden="true"
-              >
-                <span className="work-experience-timeline__node" />
-                <span className="work-experience-timeline__index">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-              </div>
-
-              <ExperienceCard
+            return (
+              <li
                 className={cn(
-                  'work-experience-timeline__content',
-                  isLeftAligned && 'experience-card--align-end',
+                  'work-experience-timeline__item',
+                  isLeftAligned
+                    ? 'work-experience-timeline__item--left'
+                    : 'work-experience-timeline__item--right',
                 )}
-                item={item}
-              />
-            </li>
-          );
-        })}
-      </ol>
+                key={item.id}
+              >
+                <TimelineDate className="work-experience-timeline__date">
+                  {item.period}
+                </TimelineDate>
+
+                <div
+                  className="work-experience-timeline__axis"
+                  aria-hidden="true"
+                >
+                  <span className="work-experience-timeline__node" />
+                  <span className="work-experience-timeline__index">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <ExperienceCard
+                  className={cn(
+                    'work-experience-timeline__content',
+                    isLeftAligned && 'experience-card--align-end',
+                  )}
+                  item={item}
+                />
+              </li>
+            );
+          })}
+        </ol>
+      </div>
 
       {canExpand ? (
         <div className="work-experience-timeline__actions">
           <Button
             aria-controls={trackId}
             aria-expanded={isExpanded}
-            onClick={() => setIsExpanded((currentValue) => !currentValue)}
+            onClick={handleToggleExpanded}
             type="button"
             variant="outline"
           >
