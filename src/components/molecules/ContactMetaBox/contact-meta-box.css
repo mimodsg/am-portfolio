@@ -8,7 +8,7 @@
   }
 
   & .contact-meta-box__link {
-    @apply grid grid-cols-[auto_1fr] items-center gap-x-3 px-0 py-3 font-mono text-sm leading-6 text-zinc-900 no-underline transition-colors duration-150;
+    @apply flex items-center gap-x-3 px-0 py-3 font-mono text-sm leading-6 text-zinc-900 no-underline transition-colors duration-150;
 
     &:hover,
     &:focus-visible {
@@ -25,11 +25,31 @@
   }
 
   & .contact-meta-box__icon {
-    @apply col-start-1 text-stone-200 transition-colors duration-150;
+    @apply shrink-0 text-stone-200 transition-colors duration-150;
   }
 
   & .contact-meta-box__value {
-    @apply col-start-2 break-words text-xs font-medium text-zinc-900;
+    @apply break-words text-xs font-medium text-zinc-900;
+  }
+
+  &.contact-meta-box--horizontal {
+    @apply max-w-none border-0 bg-transparent p-0 rounded-none;
+
+    & .contact-meta-box__list {
+      @apply flex flex-col gap-4;
+    }
+
+    & .contact-meta-box__item {
+      @apply min-w-0;
+    }
+
+    & .contact-meta-box__link {
+      @apply justify-center py-0;
+    }
+
+    & .contact-meta-box__value {
+      @apply whitespace-nowrap;
+    }
   }
 }
 
@@ -37,6 +57,18 @@
   .contact-meta-box {
     & .contact-meta-box__link {
       @apply transition-none;
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  .contact-meta-box.contact-meta-box--horizontal {
+    & .contact-meta-box__list {
+      @apply flex-row items-center justify-between;
+    }
+
+    & .contact-meta-box__item {
+      flex: 1 1 0;
     }
   }
 }

@@ -42,4 +42,12 @@ describe('ContactMetaBox', () => {
     expect(screen.queryByText('Phone')).not.toBeInTheDocument();
     expect(screen.queryByText('LinkedIn')).not.toBeInTheDocument();
   });
+
+  it('supports the horizontal variant', () => {
+    render(<ContactMetaBox items={contactItems} variant="horizontal" />);
+
+    const container = screen.getByRole('list').closest('.contact-meta-box');
+
+    expect(container).toHaveClass('contact-meta-box--horizontal');
+  });
 });

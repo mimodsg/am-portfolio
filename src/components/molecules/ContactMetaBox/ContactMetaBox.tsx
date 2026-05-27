@@ -12,17 +12,24 @@ export interface ContactMetaItem {
   value: string;
 }
 
+export type ContactMetaBoxVariant = 'default' | 'horizontal';
+
 export interface ContactMetaBoxProps extends HTMLAttributes<HTMLElement> {
   items: ContactMetaItem[];
+  variant?: ContactMetaBoxVariant;
 }
 
 export function ContactMetaBox({
   className,
   items,
+  variant = 'default',
   ...props
 }: ContactMetaBoxProps) {
   return (
-    <aside className={cn('contact-meta-box', className)} {...props}>
+    <aside
+      className={cn('contact-meta-box', `contact-meta-box--${variant}`, className)}
+      {...props}
+    >
       <ul className="contact-meta-box__list">
         {items.map((item) => (
           <li className="contact-meta-box__item" key={`${item.label}-${item.href}`}>
