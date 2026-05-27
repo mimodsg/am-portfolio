@@ -1,14 +1,22 @@
 @reference '../../../styles/globals.css';
 
 .contact-meta-box {
-  @apply grid max-w-sm content-start border border-zinc-200 bg-stone-50 p-5 text-zinc-900 rounded-lg;
+  @apply grid max-w-sm content-start bg-transparent p-0 text-zinc-900 rounded-none;
 
   & .contact-meta-box__list {
-    @apply m-0 grid list-none gap-1 p-0;
+    @apply m-0 grid list-none p-0;
+  }
+
+  & .contact-meta-box__item {
+    @apply border-b border-zinc-200;
+
+    &:last-child {
+      @apply border-b-0;
+    }
   }
 
   & .contact-meta-box__link {
-    @apply flex items-center gap-x-3 px-0 py-3 font-mono text-sm leading-6 text-zinc-900 no-underline transition-colors duration-150;
+    @apply flex items-center gap-x-4 px-0 py-4 font-mono text-sm leading-6 text-zinc-900 no-underline transition-colors duration-150;
 
     &:hover,
     &:focus-visible {
@@ -25,11 +33,11 @@
   }
 
   & .contact-meta-box__icon {
-    @apply shrink-0 text-stone-200 transition-colors duration-150;
+    @apply h-6 w-6 shrink-0 text-stone-200 transition-colors duration-150;
   }
 
   & .contact-meta-box__value {
-    @apply break-words text-xs font-medium text-zinc-900;
+    @apply break-words text-sm leading-5 font-medium text-zinc-900;
   }
 
   &.contact-meta-box--horizontal {
@@ -40,15 +48,19 @@
     }
 
     & .contact-meta-box__item {
-      @apply min-w-0;
+      @apply min-w-0 border-b-0;
     }
 
     & .contact-meta-box__link {
       @apply justify-center py-0;
     }
 
+    & .contact-meta-box__icon {
+      @apply h-5 w-5;
+    }
+
     & .contact-meta-box__value {
-      @apply whitespace-nowrap;
+      @apply text-xs leading-5 whitespace-nowrap;
     }
   }
 }

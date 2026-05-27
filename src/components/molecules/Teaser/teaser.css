@@ -87,7 +87,7 @@
 
   &.teaser--dark .teaser__eyebrow,
   &.teaser--dark.teaser--big .teaser__eyebrow {
-    @apply text-zinc-100/20;
+    @apply text-zinc-100/30;
   }
 
   &.teaser--dark.teaser--big-media .teaser__eyebrow {
