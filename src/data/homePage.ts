@@ -25,11 +25,13 @@ import { featuredProjects } from '@/data/projects';
 import type { SectionAlign } from '@/types/sectionAlignment';
 
 export interface HomePageContent {
-  contact: {
+  footer: {
+    citation: string;
+    contactItems: ContactMetaItem[];
     ctaHref: string;
     ctaLabel: string;
-    eyebrow: string;
-    heading: string;
+    quote: string;
+    siteLabel: string;
   };
   floatingCtaRail: {
     contactHref: string;
@@ -172,10 +174,31 @@ export const homePageContent: HomePageContent = {
     nodes: technicalSystemNodes,
     edges: technicalSystemEdges,
   },
-  contact: {
-    ctaHref: 'mailto:hello@example.com',
-    ctaLabel: 'Start a conversation',
-    eyebrow: 'Contact',
-    heading: 'Available for senior frontend and systems work.',
+  footer: {
+    citation: '— J. R. R. Tolkien, The Fellowship of the Ring',
+    contactItems: [
+      {
+        href: 'mailto:hey@alvaromena.com',
+        icon: 'envelope',
+        label: 'Email',
+        value: 'hey@alvaromena.com',
+      },
+      {
+        href: 'tel:+593987015263',
+        icon: 'phone',
+        label: 'Phone',
+        value: '+593 9 8701 5263',
+      },
+      {
+        href: 'https://www.linkedin.com/in/alvaro-mena',
+        icon: 'linkedin',
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/alvaro-mena',
+      },
+    ],
+    ctaHref: 'mailto:hey@alvaromena.com',
+    ctaLabel: 'Let’s connect and build something meaningful together.',
+    quote: 'Not all those who wander are lost.',
+    siteLabel: 'alvaromena.com',
   },
 };

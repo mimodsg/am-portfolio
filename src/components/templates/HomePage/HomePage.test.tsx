@@ -18,10 +18,10 @@ describe('HomePage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders the contact call to action', () => {
+  it('renders the footer contact call to action', () => {
     render(<HomePage />);
 
-    expect(screen.getByRole('link', { name: homePageContent.contact.ctaLabel }))
-      .toHaveAttribute('href', homePageContent.contact.ctaHref);
+    expect(screen.getByRole('link', { name: homePageContent.footer.ctaLabel }))
+      .toHaveAttribute('href', homePageContent.footer.ctaHref);
   });
 });

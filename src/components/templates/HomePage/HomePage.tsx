@@ -1,7 +1,7 @@
-import { ButtonLink } from '@/components/atoms/Button';
 import { Teaser } from '@/components/molecules/Teaser';
 import { ProfileOverview } from '@/components/organisms/ProfileOverview';
 import { ProjectCollection } from '@/components/organisms/ProjectCollection';
+import { SiteFooter } from '@/components/organisms/SiteFooter';
 import { TechnicalSystemsGraph } from '@/components/organisms/TechnicalSystemsGraph';
 import { WorkExperienceTimeline } from '@/components/organisms/WorkExperienceTimeline';
 import { homePageContent } from '@/data/homePage';
@@ -64,19 +64,15 @@ export function HomePage() {
         nodes={homePageContent.knowledge.nodes}
       />
 
-      <section
-        className="home-page__section home-page__section--contact"
+      <SiteFooter
+        citation={homePageContent.footer.citation}
+        contactItems={homePageContent.footer.contactItems}
+        ctaHref={homePageContent.footer.ctaHref}
+        ctaLabel={homePageContent.footer.ctaLabel}
         id="contact"
-        aria-labelledby="contact-title"
-      >
-        <p className="home-page__eyebrow">{homePageContent.contact.eyebrow}</p>
-        <h2 className="home-page__section-title" id="contact-title">
-          {homePageContent.contact.heading}
-        </h2>
-        <ButtonLink href={homePageContent.contact.ctaHref} variant="secondary">
-          {homePageContent.contact.ctaLabel}
-        </ButtonLink>
-      </section>
+        quote={homePageContent.footer.quote}
+        siteLabel={homePageContent.footer.siteLabel}
+      />
     </main>
   );
 }
