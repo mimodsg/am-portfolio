@@ -36,16 +36,16 @@ export function FeaturedProject({
           headingId={titleId}
           variant="small"
         />
-        <p className="featured-project__intro">
-          {project.description}
-        </p>
+        {project.description ? (
+          <p className="featured-project__intro">
+            {project.description}
+          </p>
+        ) : null}
         <img
           alt={project.imageAlt}
           className="featured-project__image"
-          height="1744"
           loading="lazy"
           src={project.imageSrc}
-          width="4096"
         />
       </div>
     </section>

@@ -1,7 +1,8 @@
 @reference '../../../styles/globals.css';
 
 .featured-project {
-  @apply w-full py-20;
+  @apply w-full;
+  padding-block: var(--space-section-y);
 
   &.featured-project--stone {
     @apply bg-stone-100 text-zinc-800;
@@ -11,14 +12,22 @@
     @apply bg-zinc-950 text-white;
   }
 
-  &.featured-project--clay {
-    @apply bg-orange-100 text-zinc-800;
+  &.featured-project--violet {
+    @apply bg-violet-950 text-white;
   }
 
   & .featured-project__inner {
-    @apply mx-auto grid max-w-[var(--layout-max-width)] gap-10;
+    @apply mx-auto grid w-full;
+    gap: var(--space-section-gap);
+    max-width: var(
+      --home-page-content-max-width,
+      calc(var(--layout-max-width) - (var(--layout-page-gutter) * 2))
+    );
     padding-left: var(--layout-page-gutter);
-    padding-right: var(--layout-page-gutter);
+    padding-right: var(
+      --home-page-right-gutter,
+      var(--layout-page-gutter)
+    );
   }
 
   & .featured-project__teaser {
@@ -34,7 +43,7 @@
   }
 
   & .featured-project__image {
-    @apply mx-auto h-auto w-[95%] max-w-[95%] border border-zinc-800/10 bg-white object-cover shadow-sm;
+    @apply mx-auto h-auto w-[95%] max-w-[95%] object-cover;
   }
 
   &.featured-project--dark .featured-project__image {
@@ -44,20 +53,8 @@
 
 @media (min-width: 760px) {
   .featured-project {
-    @apply py-28;
-
-    & .featured-project__inner {
-      @apply gap-14;
-    }
-
     & .featured-project__intro {
-      margin-left: min(16rem, 28%);
+      margin-left: min(20rem, 30%);
     }
-  }
-}
-
-@media (min-width: 1100px) {
-  .featured-project {
-    @apply py-36;
   }
 }
