@@ -12,10 +12,49 @@
 
   --layout-max-width: 1200px;
   --layout-page-gutter: 1.25rem;
+
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+  --space-36: 9rem;
+  --space-40: 10rem;
+  --space-44: 11rem;
+  --space-48: 12rem;
+  --space-52: 13rem;
+  --space-56: 14rem;
+  --space-60: 15rem;
+  --space-64: 16rem;
+  --space-72: 18rem;
+  --space-80: 20rem;
+
+  --space-section-y: var(--space-12);
+  --space-section-gap: var(--space-10);
+  --space-section-gap-tight: var(--space-6);
+  --space-section-gap-loose: var(--space-16);
 }
 
 @media (min-width: 760px) {
   :root {
     --layout-page-gutter: 3rem;
+    --space-section-y: var(--space-20);
+    --space-section-gap: var(--space-14);
+    --space-section-gap-tight: var(--space-8);
+    --space-section-gap-loose: var(--space-20);
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --space-section-y: var(--space-48);
+    --space-section-gap: var(--space-20);
+    --space-section-gap-tight: var(--space-16);
+    --space-section-gap-loose: var(--space-32);
   }
 }
