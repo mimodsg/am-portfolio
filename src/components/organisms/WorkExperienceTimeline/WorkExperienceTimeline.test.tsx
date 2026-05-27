@@ -93,6 +93,14 @@ describe('WorkExperienceTimeline', () => {
     ).toBeInTheDocument();
   });
 
+  it('supports section content alignment', () => {
+    const { container } = render(
+      <WorkExperienceTimeline align="center" items={customItems} />,
+    );
+
+    expect(container.firstChild).toHaveClass('work-experience-timeline--center');
+  });
+
   it('initializes and cleans up GSAP scroll effects when motion is allowed', () => {
     vi.stubGlobal(
       'matchMedia',
@@ -142,6 +150,7 @@ describe('WorkExperienceTimeline', () => {
     render(
       <WorkExperienceTimeline
         heading="Experience timeline"
+        initialVisibleCount={4}
         items={expandableItems}
       />,
     );

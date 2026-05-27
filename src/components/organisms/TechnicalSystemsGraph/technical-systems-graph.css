@@ -16,6 +16,14 @@
     @apply mx-auto w-full max-w-[var(--layout-max-width)];
   }
 
+  &.technical-systems-graph--center .technical-systems-graph__teaser {
+    @apply text-center;
+  }
+
+  &.technical-systems-graph--right .technical-systems-graph__teaser {
+    @apply text-right;
+  }
+
   & .technical-systems-graph__workspace {
     @apply grid w-full gap-6;
   }

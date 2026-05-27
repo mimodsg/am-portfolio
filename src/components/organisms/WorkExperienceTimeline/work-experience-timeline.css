@@ -3,6 +3,18 @@
 .work-experience-timeline {
   @apply border-t border-t-zinc-200 py-16 text-zinc-800;
 
+  & .work-experience-timeline__teaser {
+    @apply max-w-4xl;
+  }
+
+  &.work-experience-timeline--center .work-experience-timeline__teaser {
+    @apply justify-self-center text-center;
+  }
+
+  &.work-experience-timeline--right .work-experience-timeline__teaser {
+    @apply justify-self-end text-right;
+  }
+
   & .work-experience-timeline__track {
     @apply relative m-0 mt-16 grid list-none gap-16 p-0;
   }

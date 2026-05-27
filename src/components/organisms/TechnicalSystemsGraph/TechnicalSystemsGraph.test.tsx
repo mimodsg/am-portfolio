@@ -52,6 +52,12 @@ describe('TechnicalSystemsGraph', () => {
     expect(screen.getByRole('button', { name: /Laravel/i })).toBeInTheDocument();
   });
 
+  it('supports section content alignment', () => {
+    const { container } = render(<TechnicalSystemsGraph align="right" />);
+
+    expect(container.firstChild).toHaveClass('technical-systems-graph--right');
+  });
+
   it('shows node detail only while a node is hovered', async () => {
     const user = userEvent.setup();
 

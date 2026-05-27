@@ -1,0 +1,11 @@
+@reference '../../../styles/globals.css';
+
+.profile-overview-story {
+  @apply mx-auto max-w-[var(--layout-max-width)] px-5 py-16;
+}
+
+@media (min-width: 760px) {
+  .profile-overview-story {
+    @apply px-12;
+  }
+}

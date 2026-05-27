@@ -1,0 +1,47 @@
+@reference '../../../styles/globals.css';
+
+.profile-overview {
+  @apply grid gap-10 py-12;
+
+  & .profile-overview__teaser {
+    @apply max-w-4xl;
+  }
+
+  &.profile-overview--center .profile-overview__teaser {
+    @apply justify-self-center text-center;
+  }
+
+  &.profile-overview--right .profile-overview__teaser {
+    @apply justify-self-end text-right;
+  }
+
+  & .profile-overview__grid {
+    @apply grid grid-cols-1 gap-8;
+  }
+
+  & .profile-overview__image {
+    @apply h-auto w-full border border-zinc-800/10 object-cover;
+    aspect-ratio: 1 / 1;
+  }
+
+  & .profile-overview__statistics,
+  & .profile-overview__contact {
+    @apply w-full max-w-none self-start;
+  }
+}
+
+@media (min-width: 760px) {
+  .profile-overview {
+    @apply gap-14 py-20;
+
+    & .profile-overview__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(16rem, 0.8fr);
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .profile-overview {
+    @apply py-24;
+  }
+}

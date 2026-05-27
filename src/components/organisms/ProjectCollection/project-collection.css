@@ -15,6 +15,20 @@
   & .project-collection__item {
     @apply relative;
   }
+
+  &.project-collection--center {
+    & .featured-project__teaser,
+    & .featured-project__intro {
+      @apply justify-self-center text-center;
+    }
+  }
+
+  &.project-collection--right {
+    & .featured-project__teaser,
+    & .featured-project__intro {
+      @apply justify-self-end text-right;
+    }
+  }
 }
 
 @media (min-width: 760px) {

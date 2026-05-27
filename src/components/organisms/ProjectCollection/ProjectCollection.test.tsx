@@ -21,4 +21,12 @@ describe('ProjectCollection', () => {
       ).toBeInTheDocument();
     });
   });
+
+  it('supports section content alignment', () => {
+    const { container } = render(
+      <ProjectCollection align="center" projects={featuredProjects} />,
+    );
+
+    expect(container.firstChild).toHaveClass('project-collection--center');
+  });
 });

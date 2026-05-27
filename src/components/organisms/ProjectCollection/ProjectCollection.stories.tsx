@@ -21,3 +21,17 @@ export const ThreeItems: Story = {
     projects: featuredProjects,
   },
 };
+
+export const Center: Story = {
+  args: {
+    align: 'center',
+    projects: featuredProjects,
+  },
+};
+
+export const Right: Story = {
+  args: {
+    align: 'right',
+    projects: featuredProjects,
+  },
+};

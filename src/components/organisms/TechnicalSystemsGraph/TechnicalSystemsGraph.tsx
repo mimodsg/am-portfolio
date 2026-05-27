@@ -14,6 +14,7 @@ import {
   technicalSystemNodes,
 } from '@/data/technicalSystems';
 import { cn } from '@/lib/cn';
+import type { SectionAlign } from '@/types/sectionAlignment';
 
 import './technical-systems-graph.css';
 
@@ -39,6 +40,7 @@ const ReagraphSystemsCanvas = lazy(() =>
 
 export interface TechnicalSystemsGraphProps
   extends HTMLAttributes<HTMLElement> {
+  align?: SectionAlign;
   heading?: string;
   eyebrow?: string;
   intro?: string;
@@ -134,6 +136,7 @@ function createGraphNodePositions(): Record<string, GraphNodePosition> {
 }
 
 export function TechnicalSystemsGraph({
+  align = 'left',
   className,
   heading = 'Technical systems',
   eyebrow = 'Systems Thinking',
@@ -196,7 +199,11 @@ export function TechnicalSystemsGraph({
   return (
     <section
       aria-labelledby={headingId}
-      className={cn('technical-systems-graph', className)}
+      className={cn(
+        'technical-systems-graph',
+        `technical-systems-graph--${align}`,
+        className,
+      )}
       id="systems"
       {...props}
     >

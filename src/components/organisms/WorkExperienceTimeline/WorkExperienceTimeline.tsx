@@ -10,10 +10,12 @@ import { Teaser } from '@/components/molecules/Teaser';
 import { workExperienceTimeline } from '@/data/experience';
 import type { WorkExperienceTimelineEntry } from '@/data/experience';
 import { cn } from '@/lib/cn';
+import type { SectionAlign } from '@/types/sectionAlignment';
 
 import './work-experience-timeline.css';
 
 export interface WorkExperienceTimelineProps extends HTMLAttributes<HTMLElement> {
+  align?: SectionAlign;
   eyebrow?: string;
   initialVisibleCount?: number;
   heading?: string;
@@ -30,6 +32,7 @@ function allowsScrollAnimation() {
 }
 
 export function WorkExperienceTimeline({
+  align = 'left',
   className,
   eyebrow = 'Experience',
   heading = 'A timeline of experience, delivery, and craft.',
@@ -125,12 +128,17 @@ export function WorkExperienceTimeline({
   return (
     <section
       aria-labelledby={headingId}
-      className={cn('work-experience-timeline', className)}
+      className={cn(
+        'work-experience-timeline',
+        `work-experience-timeline--${align}`,
+        className,
+      )}
       id={id}
       ref={timelineRef}
       {...props}
     >
       <Teaser
+        className="work-experience-timeline__teaser"
         eyebrow={eyebrow}
         heading={heading}
         headingId={headingId}

@@ -23,3 +23,17 @@ export const Default: Story = {
     </main>
   ),
 };
+
+export const Center: Story = {
+  args: {
+    align: 'center',
+  },
+  render: Default.render,
+};
+
+export const Right: Story = {
+  args: {
+    align: 'right',
+  },
+  render: Default.render,
+};
