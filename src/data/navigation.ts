@@ -5,6 +5,6 @@ export interface NavigationItem {
 
 export const navigationItems: NavigationItem[] = [
   { label: 'Work', href: '#work' },
-  { label: 'Systems', href: '#systems' },
+  { label: 'Knowledge', href: '#knowledge' },
   { label: 'Contact', href: '#contact' },
 ];
