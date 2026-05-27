@@ -1,27 +1,27 @@
 import { render, screen } from '@testing-library/react';
 
+import { homePageContent } from '@/data/homePage';
+
 import { HomePage } from './HomePage';
 
 describe('HomePage', () => {
   it('renders the primary page heading', () => {
     render(<HomePage />);
 
+    const expectedHeading = homePageContent.hero.heading.replace(/\s+/g, ' ').trim();
+
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /senior engineering for structured frontend systems/i,
+        name: expectedHeading,
       }),
     ).toBeInTheDocument();
   });
 
-  it('renders work and contact links with meaningful names', () => {
+  it('renders the contact call to action', () => {
     render(<HomePage />);
 
-    expect(screen.getByRole('link', { name: 'View work' })).toHaveAttribute(
-      'href',
-      '#work',
-    );
-    expect(screen.getByRole('link', { name: 'Start a conversation' }))
-      .toHaveAttribute('href', 'mailto:hello@example.com');
+    expect(screen.getByRole('link', { name: homePageContent.contact.ctaLabel }))
+      .toHaveAttribute('href', homePageContent.contact.ctaHref);
   });
 });

@@ -7,48 +7,15 @@
   padding-right: var(--home-page-right-gutter);
 
   & .home-page__hero {
-    @apply py-12 pt-16;
-  }
-
-  & .home-page__hero-grid {
-    @apply grid grid-cols-1 gap-8;
+    @apply relative;
   }
 
   & .home-page__eyebrow {
     @apply mb-4 mt-0 font-mono text-xs font-medium tracking-normal text-neutral-600 uppercase;
   }
 
-  & .home-page__title {
-    @apply m-0 max-w-[11ch] font-display text-6xl leading-none font-normal tracking-normal text-zinc-800 md:text-8xl xl:text-9xl;
-  }
-
-  & .home-page__intro,
   & .home-page__body {
     @apply font-body text-base leading-8 text-zinc-800;
-  }
-
-  & .home-page__intro {
-    @apply mb-0 mt-8 max-w-[44rem];
-  }
-
-  & .home-page__actions {
-    @apply mt-8 flex flex-wrap items-center gap-4;
-  }
-
-  & .home-page__panel {
-    @apply grid gap-6 rounded-[var(--radius-lg)] border border-zinc-800/10 bg-stone-50 p-8 shadow-sm;
-  }
-
-  & .home-page__metric {
-    @apply m-0;
-
-    dt {
-      @apply mb-2 font-mono text-xs font-medium tracking-normal text-neutral-600 uppercase;
-    }
-
-    dd {
-      @apply m-0 font-body leading-[1.6] text-zinc-800;
-    }
   }
 
   & .home-page__section {
@@ -75,15 +42,6 @@
 
 @media (min-width: 760px) {
   .home-page {
-    & .home-page__hero {
-      @apply pb-20 pt-24;
-    }
-
-    & .home-page__hero-grid {
-      @apply gap-20;
-      grid-template-columns: minmax(0, 1fr) minmax(17rem, 24rem);
-    }
-
     & .home-page__section {
       @apply py-20;
     }
@@ -96,7 +54,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1281px) {
   .home-page {
     --home-page-right-gutter: max(var(--layout-page-gutter), 15rem);
   }
@@ -104,10 +62,6 @@
 
 @media (min-width: 1100px) {
   .home-page {
-    & .home-page__hero {
-      @apply pb-24 pt-32;
-    }
-
     & .home-page__section {
       @apply py-24;
     }
