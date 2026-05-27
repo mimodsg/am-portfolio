@@ -5,7 +5,6 @@ import { ProjectCollection } from '@/components/organisms/ProjectCollection';
 import { TechnicalSystemsGraph } from '@/components/organisms/TechnicalSystemsGraph';
 import { WorkExperienceTimeline } from '@/components/organisms/WorkExperienceTimeline';
 import { homePageContent } from '@/data/homePage';
-import { featuredProjects } from '@/data/projects';
 
 import './home-page.css';
 
@@ -41,11 +40,29 @@ export function HomePage() {
         statistics={homePageContent.profileOverview.statistics}
       />
 
-      <WorkExperienceTimeline />
+      <WorkExperienceTimeline
+        align={homePageContent.workExperienceTimeline.align}
+        eyebrow={homePageContent.workExperienceTimeline.eyebrow}
+        heading={homePageContent.workExperienceTimeline.heading}
+        initialVisibleCount={homePageContent.workExperienceTimeline.initialVisibleCount}
+        intro={homePageContent.workExperienceTimeline.intro}
+        items={homePageContent.workExperienceTimeline.items}
+      />
 
-      <ProjectCollection projects={featuredProjects} />
+      <ProjectCollection
+        align={homePageContent.projectCollection.align}
+        projects={homePageContent.projectCollection.projects}
+      />
 
-      <TechnicalSystemsGraph />
+      <TechnicalSystemsGraph
+        align={homePageContent.knowledge.align}
+        edges={homePageContent.knowledge.edges}
+        eyebrow={homePageContent.knowledge.eyebrow}
+        heading={homePageContent.knowledge.heading}
+        id="knowledge"
+        intro={homePageContent.knowledge.intro}
+        nodes={homePageContent.knowledge.nodes}
+      />
 
       <section
         className="home-page__section home-page__section--contact"
